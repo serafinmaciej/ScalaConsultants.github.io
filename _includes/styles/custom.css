@@ -1,0 +1,78 @@
+@font-face {
+font-family: Delicious;
+src: url("/fonts/Delicious-Roman.otf") format("opentype");
+}
+
+@font-face {
+font-family: Lato;
+src: url("/fonts/Lato-Hai.otf") format("opentype");
+}
+
+h1, h2 {
+	font-family: Lato, Helvetica, Verdana, Sans-Serif;
+	font-weight: normal;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.header {
+	border-bottom: 1px solid #eee;
+	width: 100%;
+}
+
+.title {
+	padding-top:40px;
+	padding-bottom: 40px;
+	background-image: url('/images/chevron-large.jpg');
+	background-repeat:no-repeat;
+	background-position: right;
+}
+
+.title .logo {
+font-size: 37px;
+font-family: Lato, Helvetica, Verdana, Sans-Serif;
+font-weight: normal;
+color: #666;
+}
+
+.title .logo span {
+float: left;
+height: 44px;
+}
+
+.title .logo img {
+height: 100%;
+float: left;
+}
+
+.title .logo span:after {
+border: solid #E5E5E5;
+border-width: 0 1px 0 0;
+content: "";
+float: right;
+height: 44px;
+margin: 0 12px 0 14px;
+}
+
+.title .subtitle {
+font-family: Delicious, Helvetica, Verdana, Sans-Serif;
+color: #666;
+font-size: 26px;
+}
+a {
+	font-family: Delicious, Helvetica, Verdana, Sans-Serif;
+	color: #cb2531;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #999;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}

@@ -7,6 +7,7 @@ title: Spray vs Lift RestHelper
 summary: Scalac team inside flame war. See who wins the ultimate argument.
 wordpress_id: 12
 image: placeholder.png
+author: Jakub Czuchnowski
 tags:
 - scala
 - spray

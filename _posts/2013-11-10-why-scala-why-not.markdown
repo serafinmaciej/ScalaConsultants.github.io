@@ -7,6 +7,7 @@ title: Why Scala ? Why the hell not ?!
 summary: It's almost 2014. The question "why should I use Scala?" sounds really stupid today.
 wordpress_id: 34
 image: placeholder.png
+author: Jakub Czuchnowski
 tags:
 - scala
 - why

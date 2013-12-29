@@ -31,13 +31,13 @@ h3  a {
 }
 
 .title {
-	padding-top:40px;
-	padding-bottom: 40px;
-	background-image: url('/images/chevron-large.jpg');
+	padding-top:10px;
+	padding-bottom: 20px;
+	background-image: url('/images/chevron-large-trans.png');
 	background-repeat:no-repeat;
 	background-position: right;
 }
-
+	
 .title .logo {
 font-size: 37px;
 font-family: Lato, Helvetica, Verdana, Sans-Serif;
@@ -46,29 +46,61 @@ color: #666;
 }
 
 .title .logo span {
-float: left;
-height: 44px;
+	height: 44px;
 }
 
 .title .logo img {
-height: 100%;
-float: left;
-}
-
-.title .logo span:after {
-border: solid #E5E5E5;
-border-width: 0 1px 0 0;
-content: "";
-float: right;
-height: 44px;
-margin: 0 12px 0 14px;
+	height: 100%;
 }
 
 .title .subtitle {
 font-family: Delicious, Helvetica, Verdana, Sans-Serif;
 color: #666;
-font-size: 26px;
+font-size: 15px;
 }
+
+@media (min-width: 768px) {
+	.title {
+		padding-top:40px;
+		padding-bottom: 40px;
+		background-image: url('/images/chevron-large.jpg');
+		background-repeat:no-repeat;
+		background-position: right;
+	}
+
+	.title .logo {
+		font-size: 37px;
+		font-family: Lato, Helvetica, Verdana, Sans-Serif;
+		font-weight: normal;
+		color: #666;
+	}
+
+	.title .logo span {
+		float: left;
+		height: 44px;
+	}
+
+	.title .logo img {
+		height: 100%;
+		float: left;
+	}
+
+	.title .logo span:after {
+		border: solid #E5E5E5;
+		border-width: 0 1px 0 0;
+		content: "";
+		float: right;
+		height: 44px;
+		margin: 0 12px 0 14px;
+	}
+
+	.title .subtitle {
+		font-family: Delicious, Helvetica, Verdana, Sans-Serif;
+		color: #666;
+		font-size: 26px;
+	}
+}
+
 a {
 	color: #cb2531;
 	text-decoration: none;
@@ -91,6 +123,11 @@ p {
 	color: #4e535e;
 	/*color: #3e433e;*/
 	font-size: 17px;
+}
+
+.content .row {
+	margin-top:25px;
+	margin-bottom: 25px;
 }
 
 .footer {

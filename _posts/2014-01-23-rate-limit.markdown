@@ -53,7 +53,8 @@ class RestHelperWithRateLimit extends RestHelper with RateLimit {
 ### Error response
 We had a discussion whether HTTP error response code should be `403 Forbidden` or `429 Too Many Requests` as [RFC 6585][4] suggests. I was the coder so I chose `403`. If you don't like it just override `RateLimit.errorHandler` method in your RestHelper:
 ```scala
-  override def errorHandler(req: Req, config: RateLimit.Enabled, nextReset: Long): () => Box[LiftResponse] = {
+  override def errorHandler(req: Req, 
+                            config: RateLimit.Enabled, nextReset: Long): () => Box[LiftResponse] = {
     PlainTextResponse("", Nil, 429)
   }
 ```

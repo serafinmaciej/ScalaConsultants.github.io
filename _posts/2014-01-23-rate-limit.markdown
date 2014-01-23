@@ -64,4 +64,4 @@ Last but not least, this example compiles with Lift 2.6-M2.
 [2]: http://simply.liftweb.net/index-5.3.html
 [3]: http://developer.github.com/v3/#rate-limiting
 [4]: http://tools.ietf.org/html/rfc6585#page-3
-[5]: https://gist.github.com/whysoserious/c96b0f852b207ae162c7
+[5]: https://gist.github.com/whysoserious/8581195

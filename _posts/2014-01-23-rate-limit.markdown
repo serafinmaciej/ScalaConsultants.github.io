@@ -58,7 +58,7 @@ We had a discussion whether HTTP error response code should be `403 Forbidden` o
   }
 ```
 
-Last but not least this example compiles with Lift 2.6-M2.
+Last but not least, this example compiles with Lift 2.6-M2.
 
 [1]: http://liftweb.net/
 [2]: http://simply.liftweb.net/index-5.3.html

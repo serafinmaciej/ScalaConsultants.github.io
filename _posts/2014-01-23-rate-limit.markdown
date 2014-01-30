@@ -4,14 +4,14 @@ date: 2014-01-23 14:10:22
 layout: post
 slug: rate-limit
 title: Request rate limiting in Lift
-summary: A few weeks go I've started coding in a big Lift project. One of my first tasks was to create simple HTTP API for communication with underlying Akka actors. This one was easy thanks to RestHelper. Second task was to add request rate limiting for this API. It appears that Lift despite its many features doesn't have rate limiting plugin. So, I had to roll my own.
+summary: A few weeks ago I've started coding in a big Lift project. One of my first tasks was to create a simple HTTP API for communication with underlying Akka actors. This one was easy thanks to RestHelper. Second task was to add request rate limiting for this API. It appears that Lift despite its many features doesn't have rate limiting plugin. So, I had to roll my own.
 author: Jan Ziniewicz
 tags:
 - Lift
 - REST
 ---
 
-A few weeks go I've started coding in a big [Lift][1] project. One of my first tasks was to create simple HTTP API for communication with underlying Akka actors. This one was easy thanks to [RestHelper][2].
+A few weeks ago I've started coding in a big [Lift][1] project. One of my first tasks was to create a simple HTTP API for communication with underlying Akka actors. This one was easy thanks to [RestHelper][2].
 
 Second task was to add request rate limiting for this API. It appears that [Lift][1] despite its many features doesn't have rate limiting plugin. So, I had to roll my own.
 

@@ -3,12 +3,8 @@ layout: layout
 ---
 
 <div>    
-    <div class="row">	
-        <div class="col-md-12">
-            <h3>{{ page.title }}</h3>
-        </div>
-    </div>
-    
+    <h1>{{ page.title }}</h1>
+
     <div class="row">	
         <div class="col-md-12">
             {{ content }}
@@ -17,9 +13,9 @@ layout: layout
     
 	<div class="row">
 		<div class="col-md-12">
-			<p class="text-center">
-				{% if page.previous.url %} <a class="prev" href="{{ page.previous.url }}" title="Previous Post: {{page.previous.title}}"><i class="glyphicon glyphicon-arrow-left"></i></a> {% else %} <i class="glyphicon glyphicon-arrow-left text-muted"></i> {% endif %}
-				{% if page.next.url %} <a class="next" href="{{ page.next.url }}" title="Next Post: {{page.next.title}}"><i class="glyphicon glyphicon-arrow-right"></i></a> {% else %} <i class="glyphicon glyphicon-arrow-right text-muted"></i> {% endif %}
+			<p class="text-center post-nav">
+				{% if page.previous.url %} <a class="prev pull-left" href="{{ page.previous.url }}" title="Previous Post: {{page.previous.title}}"><i class="glyphicon glyphicon-arrow-left"></i></a> {% else %} <i class="glyphicon glyphicon-arrow-left text-muted pull-left"></i> {% endif %}
+				{% if page.next.url %} <a class="next pull-right" href="{{ page.next.url }}" title="Next Post: {{page.next.title}}"><i class="glyphicon glyphicon-arrow-right"></i></a> {% else %} <i class="glyphicon glyphicon-arrow-right text-muted pull-right"></i> {% endif %}
 			</p>
 		</div>
     </div>

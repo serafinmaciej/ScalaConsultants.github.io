@@ -1,110 +1,124 @@
 ---
 comments: true
-date: 2014-02-06 13:06:00
+date: 2014-02-07 14:40:00
 layout: post
 slug: photo-service
-title: Photo service as a part of your web application.
-summary: Did you ever think about creating dedicated photo service for your application? If yes, then you have many possible use cases to consider. In this series l try to give you few tips, that could help in designing and maintaning such service.
+title: Web applications with photo service - easy peasy or a hard nut
+summary: Have you ever thought about creating dedicated photo service for your application? If so, then you have many possible use cases to consider. I'll try to give you a few tips based on a real life expierience, that could help in designing and maintaning such a service.
 author: Arkadiusz Kaczyński
 tags:
 - Web app
 - Photo
 ---
 
-Did you ever think about creating dedicated photo service for your application? If yes, then you have many possible use cases to consider. In this series l try to give you few tips, that could help in designing and maintaning such service. 
+Have you ever thought about creating dedicated photo service for your application? If so, then you have many possible use cases to consider. I'll try to give you a few tips based on a real life expierience, that could help in designing and maintaning such a service.
 
 ## Overview
+Even if you don't have an application with dedicated photo service, you probably thought about such solution sometime in the past, or even right now. You probably have at least a few ideas how it could look, or what tools you would choose to acomplish this task. tutaj coś dopisać
 
-Photo service can be a small part or a game player in your business. In the modern world quality of such service can affect your karma even if it's not a main part of your application - people do not like to watch blured, slow loading images, especially in social/sharing oriented applications. Now you probably asked yourself "easy to say, be more specific..." - let's try to clear the situation.
+### Check format before resizing
+There is a lot of different image formats, a ew palletes and lot of metadata hidden inside. Unfortunatelly not all standard Java/Scala libraries are able to cover it. Even if you use additional library you should implement your own check to assure, you pass only those images you can work with, otherwise you can easily end up with corrupted objects, or tidy amount of exceptions. Yet it is important to say, there is probably no 100% accurate solution here.
 
-## Predesign phase
+#### Solution
+For our task we can use [Apache Commons Imaging][1] formerly known as Apache Sanselan. It is a pure java library which allows photo manipulation and format checks ([Lift][2] uses it inside its [Lift Imaging][3] module). For more details about supported formats visit project [page][4]
 
-### User look - what user could expect
+Simple usage for format validation:
+```scala
+def isValidFormat(bytes: Array[Byte]): Boolean = {
+    Imaging.guessFormat(bytes) match {
+        case (ImageFormat.IMAGE_FORMAT_BMP || 
+                ImageFormat.IMAGE_FORMAT_PNG || 
+                other formats supported by your ecosystem) => true
+        case _ => false 
+    }
+}
+```
+Imaging.guessFormat can also take a File or a ByteSource, so you should find it usable in your case as well.
 
-Before you will design strict requirements rethink your idea of this service - do not think like a programmer, architect, or product owner right now. Try to think about your service as a particular user of your application. What such user could expect from your application (based on application background and target)?. Let's think about such areas:
-- uploading/delivering photos to application
-- organizing them in some kind of containers (e.g albums)
-- browsing through photos (how it should look like?)
-- sharing and downloading (should I be able to download it, download whole album, or only share it through application, or 3rd party service?)
-- platform of access (desktop site, mobile page, mobile applications)
+As it is said on the Commons Imaging project page, it is not the fastest solution, but probably the most painless to use - you just attach project jar in your favourite way, prepare function like shown above, and you are ready with your checker prototype.
 
-While working with this list do not forget about application target
+### Optimize resizing flow
+This is probably the trickiest part of the whole photo service. It requires a lot of resources like cpu and memory, especially if many resizings are done simultaneously - process can easily put down large servers if is not correctly managed.
 
-Write down your answers and thoughts, ask team for do the same and talk about results. You should end with short summary document, describing vague UX requirements, which will be one of the entry points for stating the features later.
+#### Solution
+Firstly put your resizing code into actor (like AkkaActor in Scala). 
+Probably you would like to have responsive application - choose 2 sizes that covers most of your need for given task, and prepare them "in place". Probably those sizes will be from 300px to 900px - the most universal one. 
 
-### Owner look
+While you can start using your photos, pass rest of the sizes to the actor. Don't do heavy operations outside an actor - this is the least sensible way of starting with it.
 
-In previous section we cared only about application influence on user perception. Now it's time to think about our look as an owner and a businessman, yet in very vague view:
-- how I see my service from look and feel point of view
-- should it bring "big" part of my income/increase karma (what "big" means to you; how this one corresponds to other main features - let's mark features with priorities based on value in our feeling)
-- how many resources I can engage
-- how big will be the load on this service (how many photos at a time span to resize/upload)
+### Offload resizing to the dedicated machine
+While we already made the first step in optimizing resizing flow, it's not the end, it's the absolute least. Still you are using your main machine for resizing - this strictly means, that your whole application, api and other crucial parts are vulnerable to short spikes, longer freezes, long loading and access time, or in the worst scenario for a downtime.
+Resizing is a specific use case, which can put your server down very often, especially when more users are uploading their whole albums. You are not able to secure your availability, unless you move your resizing process to separate machine.
 
-Remember, you will not be able to satisfy everybody, there will be always a percentage of people that would ask for a feature covering their use case - you must be able to make the difference between application use case consequent from background, target or a real market need and a feature change owing from one-man point of view. It's not easy, it's really hard to make it, especially when your product is entering the market.
-
-### Result of predesign phase
-
-As a result of predesign phase you should have a list containing overall view on your service - like main requirements, user entry points and a your plan as an owner. This will help you design your service in next step
-
-## Design phase
-
-### Prepare use cases
-Now it is a time to use our vague requirements and prepare use cases for our application. Here you should think how user will interact with your service. Put effort in it - describe entry points, what you want to achieve and how. Be as much as specific as you can - it will be longer and more "paintfull" now, but you will have well designed view of what you want to serve.
-
-Cooperate with team, mock things and play with simillar services - build your UX knowledge base. Last, but not least - do not put aside things, right now is the time for it.
-
-### Technical background
-When your use cases are ready, sit down and talk about strictly technical view of your service. Your dev team must know what you want to achieve and prepare your infrastructure:
-- talk about types of photos (avatars, album photos, thumbnails etc) - this will have impact on other things
-- talk about max resolution, count and size of input files (maybe you would like to allow to initialy resize pictures on client side to e.g spare client packets)
-- describe resolution which you will use across application (and probably mobile apps) - try to narrow it, by unifing them in simillar bounds (e.g do not resize images to resolutions like 150x150, 160x160, 140x140, instead unify it to 150x150 in all designs - this will spare your storage and resizing resouces like time, cpu and memory)
-- choose your storage wisely (the best way which will fit your needs and available infrastructure)
-- discuss possible change of requirements in the future - your dev team will be able to prepare a more bullet-proof solution
-- think about way of resizing (see next section for more details)
-- do we need cropping, how we will proceed with it
-- think about things like cache, compressing and way of delivering content from application to client
-- try few available libraries for resizing (including language native libraries, and solutions outside your main language)
-
-### Resizing & cropping photos - example scenario
-This is probably one of the trickiest part in designing photo service. It is easy to make it in an unoptimal way, which will put even best servers down.
-
-Let's think about such scenario:
-<pre>
-You have nice application that allows to upload whole albums. Each photo should have few resolutions, that you use across your service. Some of them are used as thumbnails, some of them as nice, big album photos. 
-In timespan of 5 minutes 500/1k/2k/... of users upload their album photos (let say 50/100/200/500/... each one).
-<p>
-How your server will behave (single node, or even multinode/cloud with scalling)?
-How you will proceed when you introduce new size in the future?
-</p></pre>
-
-This can be pretty scary huh? Do not worry I will give you few tips:
-- do you need all the resolutions at one time? You can prepare 1-2 most universal sizes "in place" and pass rest of work to actor, while being able to serve content very fast)
-- offload most work to separate thread/actor or even dedicated instance
-- find optimal tools for your needs during development - play with them, do not stick with one 
-- make stress tests of your service, do not trust your luck here
-- prepare model in a way that will allow you to manipulate your data later(store original file, store cropping bounds according to original file, or even consider having optional resolution for different photos types) - of course this depends on your specific needs
-- prepare rescue rezising actor - if something will go bad, this actor should fix your photos
-
-## Summary & tips
-In this entry I've touch only some layers of designing such services and hopefully it will be userfull for you within your process.
-
-In the end I would like to share few tips that can spare you a lot of time:
-- prepare solution in bullet-proof way - there is a lot of formats right now, and not all libraries are able to cover them. Watch out for formats with special data information, different color palette etc. Use tool for format check, and do not allow to pass format which you can not transform into rezising function
-- if your rezising solutions does not give you quality you would expect, try different one e.g. see how [ImageMagick Studio][1] does the job
-- try not to reinvent the wheel, especially when it comes to resizing function - try to find a ready one
-- 3xTest - test you solution heavily with different files (colorful, text, greyscale, different ratio etc.), resolutions, formats and extensions
-- when something goes wrong - check usage of your resouces, address logs and make more 3xTest ;)
-
-## Usefull links:
-
-- [ImageMagick][2]
-- [ImageMagick Studio][1] - an online tool for IM
-- [imgscalr][3] 
+#### Solution
+If you wish to cover it yourself, you'll need to have some shared storage for passing input and output (resized) files and a bridge which will take care of communication. With more specific needs this would be the best idea, but when you can live with 3rd party service here, I would suggest using one of the cloud service such as [cdnconnect][5] or [cloudinary][6]. Both services can transform as well as deliver images through delivery network, this means you can use it as your resizing tool or as facade of your photo service.
 
 
-[1]: http://www.imagemagick.org/MagickStudio/
-[2]: http://www.imagemagick.org/script/index.php
-[3]: http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library/
+### Unsatisfactory photo quality
+It's likely you will notice, while using some standard Java librariers, that quality of transformation is not good enough for your needs - this is quite common problem. If you start with BufferedImage and ImageIO you will notice that the quality of output image is not always sufficient. You can try using render hints or other mechanisms available for those classes, but I would suggest something else according to "do not reinvent the wheel" motto.
+
+#### Solution 
+Use already available tools - take a look at [imgscalr][7], the java image scalling library based on Java2D and addressing all the common problems you can face while trying to get things done with writing your own code. It takes care of resizing your images to desired size, while maintaning aspect ratio.
+
+The simpliest way, which will resize image up to 200px, while keeping aspect ratio (image is an BufferedImage type input):
+```
+BufferedImage resized = Scalr.resize(image, 200);
+```
+
+This is the really fast startup of working with images in java, while push away a lot of problems with tweaking settings and writing unnecessary code. If you want to have more control over resizing process you should use a Scalr.Mode and Scalr.Method.
+
+### Design your resolutions well
+Your application can be a desktop page, mobile page or mobile apps on different platforms. When it comes to photo service they do not differ much, at least not from the general point of view. Problem is when your desktop application grows, your company evolves, and you introduce mobile apps one by one.
+
+Imagine you need few different sizes on desktop page, 2 or 3 more on mobile page, and a few more for mobile apps solutions. There can be even worse scenario when your mobile apps designs will require different sizes for each platform. 
+
+You can end with ca. 10-15 different image sizes (+ probably the original one) to fullfill design wishlist. In other words your resizing process will run 10-15 times per uploaded photo! It can put down even powerful server during single photo upload, while I assume you will allow to upload multiple photos (whole albums) simultaneously. Also it is mentioning that you can exceed single model object size quite quickly. Also when you think about professional photo service you will surely store uploaded file as well.
+
+#### Solution
+In this case designs and backend must collaborate tightly to work out the best solution. Try to keep down the resolutions number by replacing similar sizes with only one - bandwidth usage extension will be negligible, but you save amount of resizing cycles, used cpu and memory. 
+There can also be situations where storage is your limitation like in MongoDB where a maximum size of a document is 16MB. Actually in MongoDB you have pretty nice alternative to use - GridFS, which is more appropriate for such cases.
+
+Also think about what photo types you will need and where - maybe your design will allow to have optional fields or more photo type oriented solution.
+
+For most cases 30px, 60px and 120px should cover avatar requirements, while additional 2-3 sizes (300-400px and 700-900px) should cover main features needs. You will probably also need 2 sizes with higher resolutions for providing excellent user expierience.
+
+
+### Cropping images and impact of new resolutions
+When you are working with album photos, you rather won't need such options, but when users are allowed to upload their avatars, then they are going to miss cropping very soon. 
+
+It can look like an easy and straightforward part, but believe me, you can set it up in a very wrong way. How will you cropp images? You will surely have some preview instead of working on full sized image. Let's look how it can be done.
+
+#### Solution
+Simplicity is the goal here. It doesn't matter much what you use on client side, the main rule here is to pass to the backend function coordinates embedded in the original image resolution. 
+If your solution is based on a preview, you will have to rescale them before sending image to the sever. Backend shouldn't deal with such rescalling on it's own, it's only task in this matter is to cropp and save avatars by working on a uploaded image, with coordinates based on it.
+Such coordinates can be saved to database and used in the future in case you will introduce a change in your design.
+
+If you proceed in a other way, you will surely cause a lot of problems, like loosing an ability to recrop photo - don't do this!
+  
+### Performance & stability issues
+You will not be the first who face a performance issue while working with photos. Likely you will observe resource exhaustion, service temporary unavailability, long access times or even more than a few downtimes. Dangling exceptions are also a part of this game.
+
+#### Here are a few tips in such case:
+- offload resizing to dedicated machines and threads. The ideal solution is when your application server is used only for serving your web page content/api.
+- do not wait hoping for luck. When you notice something that goes wrong - act immediately (look into logs, profile your application with a tool like [visualvm][8], review your code for potential holes, stress testing the application). Problems such as these do not repair themselves neither they happen once. Ask your team for code review and help in stress tests because doing it yourself will be long, paintfull and probably fruitless.
+- to be sure you are not missing anything prepare email template and send it when something goes wrong
+- 3xTest! - test, test and test your service whenever you can, with different sources (different colour palletes, different formats, and metadata included; use photos with different colours, content, sizes, and aspect ratios)
+- improve your format checker whenever you can - better checker means more secure solution
+- when you looking into the logs, search for exceptions first
+- when working with exceptions think about good place of catching them; do not catch and throw next exception instead  - this is a really bad habit. If you use Scala, use Option - remember, it is always better to deal with such situations in nice manner with you in the control, than being a passenger.
+
+### Summary
+As you probably realized by now creating a photo services is not an easy matter, however if follow a few simple rules, you will surely be successfull.
+
+
+[1]: http://commons.apache.org/proper/commons-imaging/
+[2]: http://liftweb.net/
+[3]: https://github.com/liftmodules/imaging
+[4]: http://commons.apache.org/proper/commons-imaging/formatsupport.html
+[5]: http://www.cdnconnect.com/
+[6]: http://cloudinary.com/
+[7]: http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library/
+[8]: http://visualvm.java.net/
 
 
 

@@ -10,12 +10,12 @@ title: "scalac - company blog"
     <p>
       {{ post.summary }}
     </p>
-	<p><a href="{{ post.url }}">Read more</a></p>
-	<p>
-	  by {{ post.author }}
-	<br />
+    <p><a href="{{ post.url }}">Read more</a></p>
+    <p>
+      by {{ post.author }}
+      <br/>
       {{ post.date | date: "%B %e, %Y" }}
-	<br />
+      <br/>
       Tags :{% for tag in post.tags %} <a href="/tags/{{ tag }}" rel="tooltip" title="View posts tagged with &quot;{{ tag }}&quot;"><span class="label label-primary">{{ tag }}</span></a>  {% if forloop.last != true %} {% endif %} {% endfor %}		            
     </p>
   </div>

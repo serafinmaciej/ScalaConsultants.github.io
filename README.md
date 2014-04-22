@@ -1,7 +1,7 @@
 ScalaConsultants.github.io
 ==========================
 
-Scalac blog
+Scalac blog 
 
 To run it locally:
 

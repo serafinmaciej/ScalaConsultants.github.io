@@ -69,10 +69,4 @@ For each process you defined you 'll have three new commands in SBT console:
 
 All commands support **Tab completion**.
 
-### Frustration
-
-[SBT](http://www.scala-sbt.org/) is crap. Crap with long, boring and complicated documentation. With barely documented code. With complicated API (eg. why do we have separation between Tasks and InputTasks?!).
-
-The only reason I use it is that it has great incremental compiler and there's no alternative for that. 
-
-Sorry [guys](https://github.com/sbt/sbt/graphs/contributors), you made great job creating such powerful tool and utterly failed in making it user-friendly.
+If you have any more questions just contact [me](https://twitter.com/jan______).

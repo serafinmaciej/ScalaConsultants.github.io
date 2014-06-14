@@ -14,7 +14,7 @@ tags:
 Have you ever thought about creating dedicated photo service for your application? If so, then you have many possible use cases to consider. I'll try to give you a few tips based on a real life expierience, that could help in designing and maintaning such a service.
 
 ## Overview
-Even if you don't have an application with dedicated photo service, you probably thought about such solution sometime in the past, or even right now. You probably have at least a few ideas how it could look, or what tools you would choose to acomplish this task. tutaj coś dopisać
+Even if you don't have an application with dedicated photo service, you probably thought about such solution sometime in the past, or even right now. You probably have at least a few ideas how it could look, or what tools you would choose to acomplish this task.
 
 ### Check format before resizing
 There is a lot of different image formats, a ew palletes and lot of metadata hidden inside. Unfortunatelly not all standard Java/Scala libraries are able to cover it. Even if you use additional library you should implement your own check to assure, you pass only those images you can work with, otherwise you can easily end up with corrupted objects, or tidy amount of exceptions. Yet it is important to say, there is probably no 100% accurate solution here.

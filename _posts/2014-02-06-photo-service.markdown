@@ -23,7 +23,8 @@ There is a lot of different image formats, a ew palletes and lot of metadata hid
 For our task we can use [Apache Commons Imaging][1] formerly known as Apache Sanselan. It is a pure java library which allows photo manipulation and format checks ([Lift][2] uses it inside its [Lift Imaging][3] module). For more details about supported formats visit project [page][4]
 
 Simple usage for format validation:
-```scala
+
+~~~ scala
 def isValidFormat(bytes: Array[Byte]): Boolean = {
     Imaging.guessFormat(bytes) match {
         case (ImageFormat.IMAGE_FORMAT_BMP || 
@@ -32,7 +33,8 @@ def isValidFormat(bytes: Array[Byte]): Boolean = {
         case _ => false 
     }
 }
-```
+~~~
+
 Imaging.guessFormat can also take a File or a ByteSource, so you should find it usable in your case as well.
 
 As it is said on the Commons Imaging project page, it is not the fastest solution, but probably the most painless to use - you just attach project jar in your favourite way, prepare function like shown above, and you are ready with your checker prototype.
@@ -61,9 +63,10 @@ It's likely you will notice, while using some standard Java librariers, that qua
 Use already available tools - take a look at [imgscalr][7], the java image scalling library based on Java2D and addressing all the common problems you can face while trying to get things done with writing your own code. It takes care of resizing your images to desired size, while maintaning aspect ratio.
 
 The simpliest way, which will resize image up to 200px, while keeping aspect ratio (image is an BufferedImage type input):
-```
+
+~~~ java
 BufferedImage resized = Scalr.resize(image, 200);
-```
+~~~
 
 This is the really fast startup of working with images in java, while push away a lot of problems with tweaking settings and writing unnecessary code. If you want to have more control over resizing process you should use a Scalr.Mode and Scalr.Method.
 

@@ -23,26 +23,36 @@ or continue reading.
 ### Process definition
 
 You 'll have to create your own process definition. Create an object extending [ProcessInfo](https://github.com/whysoserious/sbt-process-runner/blob/master/process-runner/src/main/scala/jz/io.scalac.processrunner/ProcessInfo.scala#L52) trait. There are two important pieces here:
-```scala
+
+~~~ scala
 def processBuilder: ProcessBuilder
-```
+~~~
+
 defines how process should be started. For that you can use a very convenient [scala.sys.process](http://scala-lang.org/api/2.10.4/index.html#scala.sys.process.package) API. 
-```scala
+
+~~~ scala
 def isStarted: Boolean
-```
+~~~
+
 Many processes need a lot of time to start. The method above is periodically run by a plugin to check whether the process is up and running. The easiest implementation is just:
-```scala
+
+~~~ scala
 override def isStarted: Boolean = true
-```
+~~~
+
 but you can also check for the existence of a PID file
-```scala
+
+~~~ scala
 override def isStarted: Boolean = {
   import java.nio.file._
   Files.exists(Paths.get("/tmp", "webappp"))
 }
-```
+~~~
+
+
 or test whether a certain port is open:
-```scala
+
+~~~ scala
 override def isStarted: Boolean = {
   try {
     new Socket("127.0.0.1", port).getInputStream.close()
@@ -51,7 +61,7 @@ override def isStarted: Boolean = {
     case _: Exception => false
   }
 }
-```
+~~~
 
 You can see more examples in a [test-project](https://github.com/whysoserious/sbt-process-runner/blob/master/test-project%2Fproject%2FBuild.scala).
 

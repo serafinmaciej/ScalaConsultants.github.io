@@ -1,0 +1,13 @@
+{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+<!-- site_tags: {{ site_tags }} -->
+{% assign tag_words = site_tags | split:',' | sort %}
+<!-- tag_words: {{ tag_words }} -->
+
+    <h3>All Tags</h3>
+    <div>
+        {% for item in (0..site.tags.size) %}{% unless forloop.last %}
+            {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+             <a href="/tags/{{ this_word | cgi_escape }}"><span class="label label-primary">{{ this_word }} <sup>{{ site.tags[this_word].size }}</sup></span></a>
+            {% endunless %}
+        {% endfor %}
+    </div>

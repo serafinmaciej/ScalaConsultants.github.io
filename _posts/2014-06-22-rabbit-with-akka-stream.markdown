@@ -37,8 +37,12 @@ In this scenario we'll be calling the broker every time we want to get a message
 ActorProducer is a trait that enables our Actor to communicate with the Flow. Every time the Flow is ready to take some new messages, it'll send a Request message indicating how many messages it is willing to process. On receiving the message, but before calling the `receive` function, ActorProducer will update its internal `totalDemand` parameter. At this point we're ready to service the message by calling RabbitMQ broker and passing the received messages using the ActorProducer's `onNext` method (that in turn will also update the `totalDemand` accordingly).
 
 ~~~ scala
+class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
+
   val autoAck = false
   val queueName = "queue.name"
+
+  ...
 
   override def receive = {
     case Request(elements) => if (isActive) {
@@ -54,15 +58,20 @@ ActorProducer is a trait that enables our Actor to communicate with the Flow. Ev
       }
     }
   }
+}
 ~~~
 
-You'll probably notice that if RabbitMQ doesn't have any messages for us, it'll return null. That means that if we're consuming the messages faster than the producer is sending them to the broker, we will be generating much unnecessary web traffic and we'll be wasting resources.
+You'll probably notice that if RabbitMQ doesn't have any messages for us, it'll return null. That means that if we're consuming the messages faster than the (imaginary for now) producer is sending them to the broker, we will be generating much unnecessary web traffic and we'll be wasting resources. Imagine annoying child constantly asking "are we there yet? are we there yet? and now? ..." - this is exactly what our RabbitConsumerActor doing right now.
 
 That is why we will use the Push method next.
 
 ###the push
 
 ~~~ scala
+class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
+
+  ...
+
   val consumer = new DefaultConsumer(channel) {
     override def handleDelivery(
         consumerTag: String, 
@@ -78,9 +87,14 @@ That is why we will use the Push method next.
     val queue = "queue.name"
     ch.basicConsume(queue, autoAck, consumer)
   }
+}
 ~~~
 
 ~~~ scala
+class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
+
+  ...
+
   override def receive = {
     case msg: RabbitMessage => 
       if (isActive && totalDemand > 0) {
@@ -89,25 +103,35 @@ That is why we will use the Push method next.
         msg.nack()
       }
   }
+}
 ~~~
 
 ##Starting the Flow
 
 ~~~ scala
+object RabbitApp extends App {
+  
   implicit val actorSystem = ActorSystem("rabbit-akka-stream")
 
   val rabbitConsumer = ActorProducer(actorSystem.actorOf(new RabbitConsumerActor))
 
   val flow = Flow(rabbitConsumer)
+
+  ...
+}
 ~~~
 
-Now have a flow, but it doesn't do anything yet. So...
+Now we have a flow, but it doesn't do anything yet. So...
 
 ##Ducting the Flow
 
 In Akka Streams 0.2, the only way of composing flow processing was through `Flow[In] => Flow[Out]` functions. That's ok, but we could do better. And of course Akka guys did do better. In Akka Streams 0.3 they've introduced `Duct`'s. Duct is a placeholder for your transformations that can be created independently from the Flow and later attached to it. The signature is `Duct[In, Out]`. As you might have guessed, `In` is a type that enters the Duct and `Out` is the type that leaves. Here's an example of a Duct:
 
 ~~~ scala
+object RabbitApp extends App {
+
+  ...
+
   val duct: Duct[RabbitMessage, String] = Duct[RabbitMessage].
     map { msg =>
       msg.ack()
@@ -118,6 +142,7 @@ In Akka Streams 0.2, the only way of composing flow processing was through `Flow
       logger.info(msg)
       msg 
     }
+}
 ~~~
 
 We create the Duct by calling the companion object with an input type - `Duct[RabbitMessage]`. At this point our Duct has a type of `Duct[RabbitMessage, RabbitMessage]`. Later on we are doing some transformations using the `map` operator:
@@ -133,7 +158,14 @@ Ok, but still this doesn't do anything. So next...
 ##Putting it together
 
 ~~~ scala
+object RabbitApp extends App {
+
+  ...
+
   val materializer = FlowMaterializer(MaterializerSettings())
 
   flow append duct consume(materializer)
+}
 ~~~
+
+And done. We're consuming messages from RabbitMQ. You can go to the management console now and send some messages to the exchange that routes messages to the queue your RabbitConsumerActor is listening to. What you should see at least is the message being logged to the console, but you can play with the `Duct` definition to do whatever you want.

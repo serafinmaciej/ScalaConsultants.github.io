@@ -22,7 +22,22 @@ These two technologies seem like a perfect fit, so in this post I'm going to exp
 ###Disclaimer
 To try these examples you'll need to have access to RabbitMQ server. If you don't have it already you can following the instructions [here](http://www.rabbitmq.com/download.html).
 
-I'm not going to show every detail of this solution in this post. I want to concentrate on transforming the RabbitMQ messages into the Reactive Stream. I encourage you to take a look at my Activator [template](https://github.com/jczuchnowski/rabbitmq-akka-stream) to see more details - like connecting to the RabbitMQ server.
+I'm not going to show every detail of this solution in this post. I want to concentrate on transforming the RabbitMQ messages into the Reactive Stream. I encourage you to take a look at my Activator [template](https://github.com/jczuchnowski/rabbitmq-akka-stream) to see more details - like connecting to RabbitMQ server, initiating channels etc.
+
+##Simple model
+
+I'm going to use a simple representation of RabbitMQ message. It's not in any way a proper representation that will get you all the way in your RabbitMQ usage, but it is enough to show basic integration in this blog post.
+
+~~~ scala
+class RabbitMessage(val deliveryTag: Long, val body: String, channel: Channel) {
+
+  def ack(): Unit = channel.basicAck(deliveryTag, false)
+  
+  def nack(): Unit = channel.basicNack(deliveryTag, false, true)
+}
+~~~
+
+The key takeaway here is that we are remembering the channel and the delivery tag to be able to acknowledge or reject this message later during the processing. The body of course is the message itself.
 
 ##ActorProducer as RabbitMQ consumer
 
@@ -48,11 +63,13 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
     case Request(elements) => if (isActive) {
       (1 to elements) foreach { _ =>
         val response = channel.basicGet(binding.queue, autoAck)
+        
         if (response != null) {
           val msg = new RabbitMessage(
             response.getEnvelope().getDeliveryTag(), 
             new String(response.getBody(), "UTF-8"), 
             channel)
+          
           onNext(msg)
         }
       }
@@ -61,11 +78,13 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
 }
 ~~~
 
-You'll probably notice that if RabbitMQ doesn't have any messages for us, it'll return null. That means that if we're consuming the messages faster than the (imaginary for now) producer is sending them to the broker, we will be generating much unnecessary web traffic and we'll be wasting resources. Imagine annoying child constantly asking "are we there yet? are we there yet? and now? ..." - this is exactly what our RabbitConsumerActor doing right now.
+You'll probably notice that if RabbitMQ doesn't have any messages for us, it'll return null and we will still be able to process more messages. That means that if we're consuming the messages faster than the (imaginary for now) producer is sending them to the broker, we will be generating much unnecessary web traffic and we'll be wasting resources. Imagine annoying child constantly asking "are we there yet? are we there yet? and now? ..." - this is exactly what our RabbitConsumerActor doing right now while RabbitMQ broker has nothing new to say.
 
 That is why we will use the Push method next.
 
 ###the push
+
+For this scenario we will need to create an instance of `com.rabbitmq.client.Consumer` and register it to listen to the RabbitMQ broker. This way we will get notified whenever there's a new message. Our Consumer will do one thing only - it'll send a wrapped message to be serviced in the `receive` function.
 
 ~~~ scala
 class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
@@ -87,8 +106,12 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
     val queue = "queue.name"
     ch.basicConsume(queue, autoAck, consumer)
   }
+
+  register(channel, queue, consumer)
 }
 ~~~
+
+Now that we actually `receive` our message we have to check if there's a demand for it. If there is, we use the `onNext` method to pass it to the Flow. If not, we reject it by calling `nack()`. The message will be later resend by the broker and hopefully processed when there are free resources.
 
 ~~~ scala
 class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
@@ -106,7 +129,9 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
 }
 ~~~
 
-##Starting the Flow
+##Creating the Flow
+
+It's time for the Flow. Akka Streams is obviously based on Akka Actors, so the first thing we have to do is to create an ActorSystem. Our RabbitConsumerActor is created by calling the `ActorProducer.apply()` and is later passed as a producer to the Flow.
 
 ~~~ scala
 object RabbitApp extends App {
@@ -121,9 +146,11 @@ object RabbitApp extends App {
 }
 ~~~
 
-Now we have a flow, but it doesn't do anything yet. So...
+Nothing really interesting here. Now we have a flow, but it doesn't do anything. So...
 
 ##Ducting the Flow
+
+We can now call some Flow methods to process our message. Akka Streams allow us to do a lot of things here - `map`, `foreach`, `group`, `zip` and more. I'm not going to go through these as there are already some good descriptions out there like in Frank Sauer's [CEP using Akka Streams](http://www.franklysauer.com/2014/05/cep-using-akka-streams/). What I'm intrested in here is what to do when you want to define your stream manipulation separately from the Flow declaration itself. 
 
 In Akka Streams 0.2, the only way of composing flow processing was through `Flow[In] => Flow[Out]` functions. That's ok, but we could do better. And of course Akka guys did do better. In Akka Streams 0.3 they've introduced `Duct`'s. Duct is a placeholder for your transformations that can be created independently from the Flow and later attached to it. The signature is `Duct[In, Out]`. As you might have guessed, `In` is a type that enters the Duct and `Out` is the type that leaves. Here's an example of a Duct:
 
@@ -157,6 +184,8 @@ Ok, but still this doesn't do anything. So next...
 
 ##Putting it together
 
+We've created our ActorProducer, connected it to the Flow and defined some processing in a Duct. Time to connect it together and consume the stream of messages. Here it is:
+
 ~~~ scala
 object RabbitApp extends App {
 
@@ -168,4 +197,7 @@ object RabbitApp extends App {
 }
 ~~~
 
-And done. We're consuming messages from RabbitMQ. You can go to the management console now and send some messages to the exchange that routes messages to the queue your RabbitConsumerActor is listening to. What you should see at least is the message being logged to the console, but you can play with the `Duct` definition to do whatever you want.
+And done. We're consuming messages from RabbitMQ. You can go to the management console now and send some messages the queue your RabbitConsumerActor is listening to. What you should see at least, is messages being logged to the console. You can play with the `Duct` definition to do whatever else you want.
+
+It's not over. Akka Streams is 0.3 right now. It'll be exciting to see how it evolves and I'll be there to watch and write about it. Particularly from RabbitMQ point of view. Leave a comment here, drop me an email at jakub@scalac.io or tweet @jczuchnowski if you want to talk about this some more.
+

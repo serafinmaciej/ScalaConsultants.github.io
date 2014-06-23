@@ -4,7 +4,7 @@ date: 2014-06-24 00:11:55
 layout: post
 slug: akka-streams-and-rabbitmq
 title: Akka Streams and RabbitMQ
-summary: Shows how Akka Streams play nicely with RabbitMQ and provides interesting way of working with RabbitMQ messages. Covers Akka Streams 0.3 and basic ways of integrating with RabbitMQ using the new ActorProducers.
+summary: Akka Streams is an exciting new technology from Typesafe that is an implementation of the Reactive Streams specification. RabbitMQ is a messaging broker implementing AMQP 0-9-1 protocol. It's known for its reliability, speed and simplicity in everyday use. These two technologies seem like a perfect fit, so in this post I'm going to explore some basic integration possibilities and example usage.
 author: Jakub Czuchnowski
 tags:
 - Scala

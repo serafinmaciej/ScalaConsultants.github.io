@@ -7,8 +7,8 @@ title: Running subprocesses from SBT console
 summary: Preparing environment for integration tests is not easy. Usually you need to run one or more external services - database, rabbitmq, web server, etc. What's more, you have to be sure that they are up and running. After performing the tests you have to be able to turn them off. My plugin makes it possible to start all required applications directly from SBT console with minimal effort.
 author: Jan Ziniewicz
 tags:
-- SBT
 - Scala
+- SBT
 - Integration tests
 ---
 

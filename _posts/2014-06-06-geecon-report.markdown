@@ -7,7 +7,7 @@ title: GeeCON from Scala perspective
 summary: At this year's GeeCON I was helping a little bit with the organization as a volunteer. Obviously, I was mainly interested in presentations related to Scala. Unfortunately, there were only two of those, "Keep it Simple with Scala" by Adam Warski and "DDDing with Akka Persistence" by Konrad Malawski.
 author: Sławomir Wójcik
 tags:
-- conferences
+- Conferences
 ---
 
 At this year's GeeCON I was helping a little bit with the organization as a volunteer. Obviously, I was mainly interested in presentations related to Scala. Unfortunately, there were only two of those: "Keep it Simple with Scala" by Adam Warski and "DDDing with Akka Persistence" by Konrad Malawski.

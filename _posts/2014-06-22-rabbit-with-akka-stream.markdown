@@ -20,13 +20,13 @@ Akka Streams is an exciting new technology from [Typesafe](http://www.typesafe.c
 These two technologies seem like a perfect fit, so in this post I'm going to explore some basic integration possibilities and example usage.
 
 ###Disclaimer
-To try these examples you'll need to have access to RabbitMQ server. If you don't have it already you can following the instructions [here](http://www.rabbitmq.com/download.html).
+To try these examples you'll need to have access to RabbitMQ server. If you don't have it already you can follow the instructions [here](http://www.rabbitmq.com/download.html).
 
 I'm not going to show every detail of this solution in this post. I want to concentrate on transforming the RabbitMQ messages into the Reactive Stream. I encourage you to take a look at my Activator [template](https://github.com/jczuchnowski/rabbitmq-akka-stream) to see more details - like connecting to RabbitMQ server, initiating channels etc.
 
 ##Simple model
 
-I'm going to use a simple representation of RabbitMQ message. It's not in any way a proper representation that will get you all the way in your RabbitMQ usage, but it is enough to show basic integration in this blog post.
+We're going to use a simple representation of RabbitMQ message. It's not in any way a proper representation that will get you all the way in your RabbitMQ usage, but it is enough to show some basic stuff in this blog post.
 
 ~~~ scala
 class RabbitMessage(val deliveryTag: Long, val body: String, channel: Channel) {
@@ -41,7 +41,7 @@ The key takeaway here is that we are remembering the channel and the delivery ta
 
 ##ActorProducer as RabbitMQ consumer
 
-First thing we have to do (after connecting to the broker) is to get the messages from RabbitMQ somehow and then pass them into the Akka Stream Flow. Getting messages from the broker means that we're a consumer and passing them to the Flow means that at the same time we're a producer. Both of these activities will be performed by the same entity in our application - namely the ActorProducer.
+First thing we have to do (after connecting to the broker) is to get messages from RabbitMQ somehow and then pass them into the Akka Stream Flow. Getting messages from the broker means that from the RabbitMQ point of view we're a consumer. On the other hand passing them to the Flow means that at the same time we're a producer from Reactive Streams perspective. Both of these activities will be performed by the same entity in our application - namely the ActorProducer.
 
 As we are using the official RabbitMQ Java client, we have two ways to do this - pull or push.
 
@@ -78,7 +78,7 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
 }
 ~~~
 
-You'll probably notice that if RabbitMQ doesn't have any messages for us, it'll return null and we will still be able to process more messages. That means that if we're consuming the messages faster than the (imaginary for now) producer is sending them to the broker, we will be generating much unnecessary web traffic and we'll be wasting resources. Imagine annoying child constantly asking "are we there yet? are we there yet? and now? ..." - this is exactly what our RabbitConsumerActor doing right now while RabbitMQ broker has nothing new to say.
+You'll probably notice that if RabbitMQ doesn't have any messages for us, it'll return null and we will still be able to process more messages. It means that if we're consuming the messages faster than the (imaginary for now) producer is sending them to the broker, we will be generating much unnecessary web traffic and we'll be wasting resources. Imagine annoying child constantly asking "are we there yet? are we there yet? and now? ..." - this is exactly what our RabbitConsumerActor doing right now while RabbitMQ broker has nothing new to say.
 
 That is why we will use the Push method next.
 
@@ -131,7 +131,7 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
 
 ##Creating the Flow
 
-It's time for the Flow. Akka Streams is obviously based on Akka Actors, so the first thing we have to do is to create an ActorSystem. Our RabbitConsumerActor is created by calling the `ActorProducer.apply()` and is later passed as a producer to the Flow.
+It's time for the Flow. Akka Streams is obviously based on Akka Actors, so the first thing we have to do is to create an ActorSystem. Our RabbitConsumerActor is then created by calling the `ActorProducer.apply()` and is later passed as a producer to the Flow.
 
 ~~~ scala
 object RabbitApp extends App {
@@ -150,9 +150,9 @@ Nothing really interesting here. Now we have a flow, but it doesn't do anything.
 
 ##Ducting the Flow
 
-We can now call some Flow methods to process our message. Akka Streams allow us to do a lot of things here - `map`, `foreach`, `group`, `zip` and more. I'm not going to go through these as there are already some good descriptions out there like in Frank Sauer's [CEP using Akka Streams](http://www.franklysauer.com/2014/05/cep-using-akka-streams/). What I'm intrested in here is what to do when you want to define your stream manipulation separately from the Flow declaration itself. 
+We can now call some Flow methods to process our message. Akka Streams allow us to do a lot of things here - `map`, `foreach`, `group`, `zip` and more. I'm not going to go through all of these as there are already some good descriptions out there - like in Frank Sauer's [CEP using Akka Streams](http://www.franklysauer.com/2014/05/cep-using-akka-streams/). What I'm intrested in here is what to do when you want to define your stream manipulation separately from the Flow declaration itself. 
 
-In Akka Streams 0.2, the only way of composing flow processing was through `Flow[In] => Flow[Out]` functions. That's ok, but we could do better. And of course Akka guys did do better. In Akka Streams 0.3 they've introduced `Duct`'s. Duct is a placeholder for your transformations that can be created independently from the Flow and later attached to it. The signature is `Duct[In, Out]`. As you might have guessed, `In` is a type that enters the Duct and `Out` is the type that leaves. Here's an example of a Duct:
+In Akka Streams 0.2, the only way of composing flow processing was through `Flow[In] => Flow[Out]` functions. That's ok, but we could do better. And of course Akka guys did do better. In Akka Streams 0.3 they've introduced `Duct`'s. Duct is a placeholder for your transformations that can be created independently from the Flow and later appended to it. The signature is `Duct[In, Out]`. As you might have guessed, `In` is a type that enters the Duct and `Out` is the type that leaves. Here's an example of a Duct:
 
 ~~~ scala
 object RabbitApp extends App {
@@ -172,7 +172,7 @@ object RabbitApp extends App {
 }
 ~~~
 
-We create the Duct by calling the companion object with an input type - `Duct[RabbitMessage]`. At this point our Duct has a type of `Duct[RabbitMessage, RabbitMessage]`. Later on we are doing some transformations using the `map` operator:
+We create the Duct by calling the companion object with an input type - `Duct[RabbitMessage]`. At this point our Duct has a type of `Duct[RabbitMessage, RabbitMessage]`. Later on we are doing some processing using the `map` operator:
 
 * acknowledge the message
 * retrieve the message body
@@ -180,7 +180,7 @@ We create the Duct by calling the companion object with an input type - `Duct[Ra
 
 The transformed message that leaves our Duct is a String. So the final type is `Duct[RabbitMessage, String]`.
 
-Ok, but still this doesn't do anything. So next...
+Ok, but still ... this doesn't do anything.
 
 ##Putting it together
 
@@ -197,7 +197,7 @@ object RabbitApp extends App {
 }
 ~~~
 
-And done. We're consuming messages from RabbitMQ. You can go to the management console now and send some messages the queue your RabbitConsumerActor is listening to. What you should see at least, is messages being logged to the console. You can play with the `Duct` definition to do whatever else you want.
+And done. We're consuming messages from RabbitMQ. You can go to the management console now and send some messages to the queue your RabbitConsumerActor is listening to. What you should see at least, is messages being logged to the console. You can play with the `Duct` definition to do whatever else you want.
 
 It's not over. Akka Streams is 0.3 right now. It'll be exciting to see how it evolves and I'll be there to watch and write about it. Particularly from RabbitMQ point of view. Leave a comment here, drop me an email at jakub@scalac.io or tweet @jczuchnowski if you want to talk about this some more.
 

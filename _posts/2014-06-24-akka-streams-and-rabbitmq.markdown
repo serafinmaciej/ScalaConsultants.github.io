@@ -1,19 +1,20 @@
 ---
 comments: true
-date: 2014-06-22 15:55:55
+date: 2014-06-24 00:11:55
 layout: post
-slug: rabbit-with-akka-streams
-title: RabbitMQ with Akka Streams
-summary: Shows how Akka Streams play nicely with RabbitMQ and provides interesting new way of working with RabbitMQ messages.
+slug: akka-streams-and-rabbitmq
+title: Akka Streams and RabbitMQ
+summary: Shows how Akka Streams play nicely with RabbitMQ and provides interesting way of working with RabbitMQ messages. Covers Akka Streams 0.3 and basic ways of integrating with RabbitMQ using the new ActorProducers.
 author: Jakub Czuchnowski
 tags:
 - Scala
 - Akka
 - Akka Streams
+- Reactive Streams
 - RabbitMQ
 ---
 
-Akka Streams is an exciting new technology from [Typesafe](http://www.typesafe.com/) that is an implementation of the [Reactive Streams](http://www.reactive-streams.org/) specification. To this point two other implementations have been declared (from the [Reactor team](https://github.com/reactor/reactor) and Netflix's [RxJava team](https://github.com/Netflix/RxJava/issues/1000)) but only the Typesafe's implementation is mature enough to do some experimenting with it. This blog covers the 0.3 version of Akka Streams. You can find the 0.3 API [here](http://doc.akka.io/api/akka-stream-experimental/0.3/?_ga=1.31946302.1218088554.1402534155#package)
+Akka Streams is an exciting new technology from [Typesafe](http://www.typesafe.com/) that is an implementation of the [Reactive Streams](http://www.reactive-streams.org/) specification. To this point two other implementations have been declared (from the [Reactor team](https://github.com/reactor/reactor) and Netflix's [RxJava team](https://github.com/Netflix/RxJava/issues/1000)) but only the Typesafe's implementation is mature enough to do some experimenting with it. This blog covers the 0.3 version of Akka Streams. You can find the API [here](http://doc.akka.io/api/akka-stream-experimental/0.3)
 
 [RabbitMQ](http://www.rabbitmq.com/) is a messaging broker implementing AMQP 0-9-1 protocol. It's known for its reliability, speed and simplicity in everyday use.
 
@@ -29,7 +30,7 @@ I'm not going to show every detail of this solution in this post. I want to conc
 We're going to use a simple representation of RabbitMQ message. It's not in any way a proper representation that would get you all the way in your RabbitMQ usage, but it is enough to show some basic stuff in this blog post.
 
 ~~~ scala
-class RabbitMessage(val deliveryTag: Long, val body: String, channel: Channel) {
+class RabbitMessage(val deliveryTag: Long, val body: ByteString, channel: Channel) {
 
   def ack(): Unit = channel.basicAck(deliveryTag, false)
   
@@ -60,20 +61,19 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
   ...
 
   override def receive = {
-    case Request(elements) => if (isActive) {
+    case Request(elements) if isActive =>
       (1 to elements) foreach { _ =>
         val response = channel.basicGet(binding.queue, autoAck)
         
         if (response != null) {
           val msg = new RabbitMessage(
             response.getEnvelope().getDeliveryTag(), 
-            new String(response.getBody(), "UTF-8"), 
+            ByteString(response.getBody()), 
             channel)
           
           onNext(msg)
         }
       }
-    }
   }
 }
 ~~~
@@ -97,7 +97,7 @@ class RabbitConsumerActor extends ActorProducer[RabbitMessage] {
         envelope: Envelope, 
         properties: AMQP.BasicProperties, 
         body: Array[Byte]) = {
-      self ! new RabbitMessage(envelope.getDeliveryTag(), new String(body, "UTF-8"), channel)
+      self ! new RabbitMessage(envelope.getDeliveryTag(), ByteString(body), channel)
     }
   }
 
@@ -164,7 +164,7 @@ object RabbitApp extends App {
       msg.ack()
       msg
     }.
-    map { _.body }.
+    map { _.body.utf8String }.
     map { msg => 
       logger.info(msg)
       msg 
@@ -175,7 +175,7 @@ object RabbitApp extends App {
 We create the Duct by calling the companion object with an input type - `Duct[RabbitMessage]`. At this point our Duct has a type of `Duct[RabbitMessage, RabbitMessage]`. Later on we are doing some processing using the `map` operator:
 
 * acknowledge the message
-* retrieve the message body
+* retrieve the message body as String
 * log the message 
 
 The transformed message that leaves our Duct is a String. So the final type is `Duct[RabbitMessage, String]`.

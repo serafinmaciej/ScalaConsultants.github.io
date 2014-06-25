@@ -7,7 +7,7 @@
     <div>
         {% for item in (0..site.tags.size) %}{% unless forloop.last %}
             {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-             <a href="/tags/{{ this_word | cgi_escape }}"><span class="label label-primary">{{ this_word }} <sup>{{ site.tags[this_word].size }}</sup></span></a>
+             <a href="/tags/{{ this_word }}"><span class="label label-primary">{{ this_word }} <sup>{{ site.tags[this_word].size }}</sup></span></a>
             {% endunless %}
         {% endfor %}
     </div>

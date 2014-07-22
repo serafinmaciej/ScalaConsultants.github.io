@@ -18,15 +18,17 @@ Samsung Galaxy Gear2 smartwatches are some nice new wearables from Samsung. As y
 
 Gear2 hit the market only 3 months ago so there aren't many noteworthy tutorials on the web. Unfortunately, only [2 decent official video tutorials](http://developer.samsung.com/samsung-gear#) are available. Besides that you can find some valueable information on Gear by looking up the [denvycom.com blog](http://denvycom.com/blog/?s=gear+2) and... To be honest - that's all we've got.
 
-Our WearLabs team recently managed to develop an [Android application, which successfully takes advantage of Galaxy Gear2 functionalities](http://fieldsofwar.co/). I was the one to focus on the smartwatch side of the game and actually really enjoyed it. That's why I came up with an idea to share, what I've learnt and maybe encourage a few of you to develop some new fancy Gear2 apps.
+Our WearLabs™ team recently managed to develop an [Android application, which successfully takes advantage of Galaxy Gear2 functionalities](http://fieldsofwar.co/). I was the one to focus on the smartwatch side of the game and actually really enjoyed it. That's why I came up with an idea to share, what I've learnt and maybe encourage a few of you to develop some new fancy Gear2 apps.
 
-##Setting up the environment
+Code shown in this post can be [downloaded from my repository](https://github.com/ScalaConsultants/galaxy-gear2-tutorial). Feel free to play with it or even use it in your own projects.
+
+##Setting up the environment & troubleshooting
 Follow the [official install guide](http://developer.samsung.com/samsung-gear#) carefully and you're all OK. Remember about dealing with certification matters, because you will NOT be able to run your own applications, neither even build and launch existing tutorial ones. Don't forget to push the certificate into Galaxy Gear device. Also be sure to enable USB debugging on smartwatch and check 'Unknown sources' option in the Gear Manager app.
 
 ##Understanding the application
 Now, when your IDE is ready, it's time to install and import [official HelloAccessory tutorial project](http://img-developer.samsung.com/contents/cmm/HelloAccessory.zip). As you can see the app is divided in 2 separate pieces, the Android host-side, and the wearable/ gear-side. This is the most common scenario called integrated app type. Android-side service-based class runs the logic, which controls the Gear widget.
 
-~~~ java
+~~~ android
 public class HelloAccessoryProviderService extends SAAgent {
 
 	// ...
@@ -37,23 +39,16 @@ public class HelloAccessoryProviderService extends SAAgent {
 		
 		public class HelloAccessoryProviderConnection extends SASocket {
 		
-			// bunch of override methods, which are your app's main logic
+			// ...
 ~~~
 
-Here's how the skeleton of host-side Provider Service look like. SAAgent class extends the standard Android Service class. In other words, this file represents a special Service, which contains all host-side functionalities. There's also SASocket subclass, which drives the connection itself, between Android smartphone and Gear2 widget.
+Here's how the skeleton of host-side Provider Service look like. SAAgent class extends the standard Android Service class. In other words, this file represents a special Service, which contains all host-side functionalities. There's also SASocket subclass, which drives the connection itself, between Android smartphone and Gear2 widget. It's your application's main logic.
 
 In general - SAAgent class can be compared to something like a Peer. On the other hand, SASocket is the 'bridge' between SAAgent and Galaxy Gear2 device.
 
 ##Gear-side logic
-Information from the previous paragraph comes very handy, when we take a closer look at the Gear-side part of the application. Open up the JavaScript file and look at the similarities:
-
-~~~
-webapis.sa.requestSAAgent -> SAAgent.setPeerAgentFindListener ->
--> SAAgent.findPeerAgents -> SAAgent.setServiceConnectionListener ->
--> SAAgent.requestServiceConnection
-
-and voilà - we are connected using SASocket
-~~~
+Information from the previous paragraph comes very handy, when we take a closer look at the Gear-side part of the application. Open up the JavaScript file and compare it with the following method flow diagram:
+![wtf](http://yuml.me/b314b50f)
 
 When Gear tries to connect, it searches for available SAAgent. Then, we go one step further by setting appropriate listener and firing 'SAAgent.findPeerAgents' method. Next, we check, if SAAgent's and Gear's AppNames do correspond with each other. If so, we request service connection with SAAgent and finally can communicate with the host-side Android device using SASocket.
 
@@ -61,7 +56,7 @@ When Gear tries to connect, it searches for available SAAgent. Then, we go one s
 Here comes the most important part of the first tutorial app - transferring data between Android and Gear. We do that using binary data arrays (in this example, Strings). It's a very crucial skill, essential basic, which you must know in order to be able to jump into developing bigger and more valueable applications. Let's take a closer look at the Android-side:
 
 ###Receiving - Android
-~~~ java
+~~~ android
 public class HelloAccessoryProviderConnection extends SASocket {
 
 	// ...
@@ -81,7 +76,7 @@ onReceive method is fired every time Android device receives data from Gear. You
 Wait, what if you want to send data from host-side to Gear? It's not explained in the tutorial app, but don't worry - I'm here to show you.
 
 ###Sending - Android
-~~~ java
+~~~ android
 public class HelloAccessoryProviderConnection extends SASocket {
 
 	// ...
@@ -110,7 +105,7 @@ public class HelloAccessoryProviderConnection extends SASocket {
 
 That's how you send data to Gear from Android device. First of all, you get a uHandler from connectionsMap (this ensures you, that the connection with smartwatch is active). Then you simply post binary data on the specific channel using Thread. It looks easy, but the trickiest part is to properly launch this method, when needed. As I stated at the beginning, SAAgent class extends Android Service. Then, the simplest, yet quite effective way to communicate with the Service (and our sendNotification method) is to use Broadcasts.
 
-~~~ java
+~~~ android
 public class HelloAccessoryProviderService extends SAAgent {
 
 	// ...
@@ -140,7 +135,7 @@ public class HelloAccessoryProviderService extends SAAgent {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("myData")) {
-				String data = intent.getStringExtra("data", "");
+				String data = intent.getStringExtra("data");
 				notifyGear(data); 
             }
         }
@@ -157,11 +152,11 @@ public class HelloAccessoryProviderService extends SAAgent {
 
 Code shown above lets you send any data to Gear, when HelloAccessoryProviderService receives a Broadcast. All you have to do is sending that broadcast from an appropriate Activity:
 
-~~~ java
+~~~ android
 // method to place in your Activity
-public void sendDataToGear() {
+public void sendDataToGear(View view) {
 	Intent intent = new Intent("myData");
-	intent.putExtra("data", "top secret message");
+	intent.putExtra("data", "Hello Gear!");
 	sendBroadcast(intent);
 }
 ~~~
@@ -201,4 +196,4 @@ Another easy step. Just be sure to pass a correct argument to this method - it'l
 ##Now it's your turn
 That's it. It's time to code. You know how to handle the transferring data between Android and Gear. With that essential skill you are now able to develop almost every type of integrated app you want.
 
-Feel free to leave a comment here, send me an email at adam@scalac.io - I am eager to help you. Have fun and play with the code above any way you want.
+Feel free to leave a comment here or send me an email at adam@scalac.io - I am eager to help you. Have fun and play with the code above any way you want.

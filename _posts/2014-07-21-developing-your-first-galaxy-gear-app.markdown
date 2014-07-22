@@ -3,7 +3,7 @@ comments: true
 date: 2014-07-21 13:38:11
 layout: post
 slug: developing-your-first-galaxy-gear-app
-title: Developing your first Galaxy Gear2 App - Tips
+title: Developing your first Tizen Galaxy Gear2 App - Tips
 summary: Samsung Galaxy Gear2 smartwatches are some nice new wearables from Samsung. Although we already know, that Android Wear is on its way, it will take some time for it to arrive. Why don't you take a chance then and develop your first app for Gear2?
 author: Adam Nadoba
 tags:
@@ -21,9 +21,7 @@ Gear2 hit the market only 3 months ago so there aren't many noteworthy tutorials
 Our WearLabs team recently managed to develop an [Android application, which successfully takes advantage of Galaxy Gear2 functionalities](http://fieldsofwar.co/). I was the one to focus on the smartwatch side of the game and actually really enjoyed it. That's why I came up with an idea to share, what I've learnt and maybe encourage a few of you to develop some new fancy Gear2 apps.
 
 ##Setting up the environment
-The purpose of this post is not to guide you along the install process, but to give you some useful tips and knowlegde on basic functionalities.
-
-Follow the [official install guide](http://developer.samsung.com/samsung-gear#) carefully and you're all OK. Remember about dealing with a certification matters, because you will NOT be able to run your own applications, neither even build and launch existing tutorial ones.
+Follow the [official install guide](http://developer.samsung.com/samsung-gear#) carefully and you're all OK. Remember about dealing with certification matters, because you will NOT be able to run your own applications, neither even build and launch existing tutorial ones. Don't forget to push the certificate into Galaxy Gear device. Also be sure to enable USB debugging on smartwatch and check 'Unknown sources' option in the Gear Manager app.
 
 ##Understanding the application
 Now, when your IDE is ready, it's time to install and import [official HelloAccessory tutorial project](http://img-developer.samsung.com/contents/cmm/HelloAccessory.zip). As you can see the app is divided in 2 separate pieces, the Android host-side, and the wearable/ gear-side. This is the most common scenario called integrated app type. Android-side service-based class runs the logic, which controls the Gear widget.
@@ -50,8 +48,11 @@ In general - SAAgent class can be compared to something like a Peer. On the othe
 Information from the previous paragraph comes very handy, when we take a closer look at the Gear-side part of the application. Open up the JavaScript file and look at the similarities:
 
 ~~~
-webapis.sa.requestSAAgent -> SAAgent.setPeerAgentFindListener -> SAAgent.findPeerAgents -> SAAgent.setServiceConnectionListener -> SAAgent.requestServiceConnection
-and voila - we are connected using SASocket
+webapis.sa.requestSAAgent -> SAAgent.setPeerAgentFindListener ->
+-> SAAgent.findPeerAgents -> SAAgent.setServiceConnectionListener ->
+-> SAAgent.requestServiceConnection
+
+and voilà - we are connected using SASocket
 ~~~
 
 When Gear tries to connect, it searches for available SAAgent. Then, we go one step further by setting appropriate listener and firing 'SAAgent.findPeerAgents' method. Next, we check, if SAAgent's and Gear's AppNames do correspond with each other. If so, we request service connection with SAAgent and finally can communicate with the host-side Android device using SASocket.

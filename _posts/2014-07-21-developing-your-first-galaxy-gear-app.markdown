@@ -66,7 +66,7 @@ public class HelloAccessoryProviderConnection extends SASocket {
 		
 		// for example
 		Toast.makeText(getBaseContext(),
-                data.toString(), Toast.LENGTH_LONG)
+                new String(data), Toast.LENGTH_LONG)
                 .show();		
 	}
 ~~~
@@ -124,7 +124,7 @@ public class HelloAccessoryProviderService extends SAAgent {
 			
 			// for example
 			Toast.makeText(getBaseContext(),
-					data.toString(), Toast.LENGTH_LONG)
+					new String(data), Toast.LENGTH_LONG)
 					.show();			
 		}
 	}

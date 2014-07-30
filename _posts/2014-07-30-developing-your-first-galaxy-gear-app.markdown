@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2014-07-29 13:38:11
+date: 2014-07-30 13:38:11
 layout: post
 slug: developing-your-first-galaxy-gear-app
 title: Developing your first Tizen Galaxy Gear2 App - Tips

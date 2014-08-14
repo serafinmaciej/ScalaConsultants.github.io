@@ -58,6 +58,10 @@ color: #666;
 font-size: 15px;
 }
 
+.visible-xs img {
+    width: 25%;
+}
+
 @media (min-width: 768px) {
 	.title {
 		padding-top:40px;

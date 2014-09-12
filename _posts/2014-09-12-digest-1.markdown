@@ -1,0 +1,19 @@
+---
+comments: true
+date: 2014-09-12 16:10:00
+layout: post
+slug: digest-1
+title: Scalac Weekly Digest#1
+summary: Collection of interesting links from around of web choosen for you by scalac team
+author: Scalac Team
+tags:
+- Scalac Weekly Digest
+---
+
+* \[Startups\] [7 lessons learned from Dinnr](https://medium.com/@michalbohanes/seven-lessons-i-learned-from-the-failure-of-my-first-startup-dinnr-c166d1cfb8b8)
+* \[Tech\] [War on spam](https://moderncrypto.org/mail-archive/messaging/2014/000780.html)
+* \[Algorithms\] [Introduction to A*](http://www.redblobgames.com/pathfinding/a-star/introduction.html)
+* \[Security\] [Some nice readings about security](http://dfir.org/?q=node/8/)
+* \[Working\] [Remote](https://37signals.com/remote/)
+* \[Deep Learning\] [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
+

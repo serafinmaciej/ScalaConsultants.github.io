@@ -16,4 +16,5 @@ tags:
 * \[Security\] [Some nice readings about security](http://dfir.org/?q=node/8/)
 * \[Working\] [Remote](https://37signals.com/remote/)
 * \[Deep Learning\] [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
+* \[Scala\] [Kamon Scala monitoring](http://kamon.io/)
 

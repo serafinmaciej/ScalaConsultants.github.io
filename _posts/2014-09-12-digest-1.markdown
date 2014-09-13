@@ -17,4 +17,5 @@ tags:
 * \[Working\] [Remote](https://37signals.com/remote/)
 * \[Deep Learning\] [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
 * \[Scala\] [Kamon Scala monitoring](http://kamon.io/)
+* \[Javascript\] [Memory management masterclass](https://speakerdeck.com/addyosmani/javascript-memory-management-masterclass)
 

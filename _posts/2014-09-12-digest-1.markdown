@@ -14,8 +14,10 @@ tags:
 * \[Tech\] [War on spam](https://moderncrypto.org/mail-archive/messaging/2014/000780.html)
 * \[Algorithms\] [Introduction to A*](http://www.redblobgames.com/pathfinding/a-star/introduction.html)
 * \[Security\] [Some nice readings about security](http://dfir.org/?q=node/8/)
-* \[Working\] [Remote](https://37signals.com/remote/)
-* \[Deep Learning\] [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
+* \[Working\] [Remote book](https://37signals.com/remote/)
+* \[Deep Learning\] [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/index.html)
+* \[Neural Networks\] [Small brains - big data](http://radar.oreilly.com/2014/09/small-brains-big-data.html)
+* \[Machine Learning\] [Using ML for painting analysis](https://medium.com/the-physics-arxiv-blog/when-a-machine-learning-algorithm-studied-fine-art-paintings-it-saw-things-art-historians-had-never-b8e4e7bf7d3e)
 * \[Scala\] [Kamon Scala monitoring](http://kamon.io/)
 * \[Javascript\] [Memory management masterclass](https://speakerdeck.com/addyosmani/javascript-memory-management-masterclass)
-
+* \[Javascript\] [AngularJS style guide](https://github.com/mgechev/angularjs-style-guide)

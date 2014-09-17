@@ -18,7 +18,7 @@ tags:
 
 Hi folks! 
 
-Here is this weeks digest. This time a bit more about machine learning and JS, but still worth taking a look. Enjoy
+Welcome to the first edition of Scalac Weekly Digest. We would like to present you with fresh and interesting links dug out from the depths of internet. Starting this week our team will entertain you with selected links. One link for every day of the week. This time a bit more about machine learning and JS, definitely worth taking a look. Enjoy and see you next week.
 
 * \[Startups\] [7 lessons learned from Dinnr](https://medium.com/@michalbohanes/seven-lessons-i-learned-from-the-failure-of-my-first-startup-dinnr-c166d1cfb8b8)
 

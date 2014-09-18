@@ -1,0 +1,49 @@
+---
+comments: true
+date: 2014-09-12 16:10:00
+layout: post
+slug: digest-1
+title: Scalac Weekly Digest#1
+summary: Collection of interesting links from around of web choosen for you by scalac team
+author: Scalac Team
+tags:
+- Scalac Weekly Digest
+- Startups
+- Algorithms
+- Deep Learning
+- Neural Networks
+- Machine Learning
+- Javascript
+---
+
+Hi folks! 
+
+Welcome to the first edition of Scalac Weekly Digest. We would like to present you with fresh and interesting links dug out from the depths of internet. Starting this week our team will entertain you with selected links. One link for every day of the week. This time a bit more about machine learning and JS, definitely worth taking a look. Enjoy and see you next week.
+
+* \[Startups\] [7 lessons learned from Dinnr](https://medium.com/@michalbohanes/seven-lessons-i-learned-from-the-failure-of-my-first-startup-dinnr-c166d1cfb8b8)
+
+Michal Bohanes writes about his experience with running an e-commerce startup and what he learned from it. He examines the reasons behind Dinnr failure and what could be done better. A very insightful post.
+
+* \[Algorithms\] [Introduction to A*](http://www.redblobgames.com/pathfinding/a-star/introduction.html)
+ 
+There are many pathfinding tutotials available in the internet, but this is probably the best. With great explaination and even better animations it's a must-read for everyone interested in algorithms or game programming.
+
+* \[Deep Learning\] [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/index.html)
+
+A great free online book by Michael Nielsen for all those interested in Deep Learning and Neural Networks. Nicely explains this complex topic. 
+
+* \[Neural Networks\] [Small brains - big data](http://radar.oreilly.com/2014/09/small-brains-big-data.html)
+
+Short introductory blog post about Neural Networks, current advancements in this area and the road ahead.
+
+* \[Machine Learning\] [Using ML for painting analysis](https://medium.com/the-physics-arxiv-blog/when-a-machine-learning-algorithm-studied-fine-art-paintings-it-saw-things-art-historians-had-never-b8e4e7bf7d3e)
+ 
+A group of researchers used Machine Learning techniques to analyse paintings and got amazing results. Impressive demonstration of Machine Learning capabilities. Computers were able to learn on their own things, that people studied over 100 years and more.
+
+* \[Javascript\] [Memory management masterclass](https://speakerdeck.com/addyosmani/javascript-memory-management-masterclass)
+
+Addy Osmani gave an amazing presentation about dealing with memory in JS-based apps. Here are the slides. If you work with frontend definitely take a look.
+
+* \[Javascript\] [AngularJS style guide](https://github.com/mgechev/angularjs-style-guide)
+ 
+Make sure your Angular code is state of the art with this comprehensive style guide. As Angular is probably the most widely used javascript framework it's worth to make sure you get it right

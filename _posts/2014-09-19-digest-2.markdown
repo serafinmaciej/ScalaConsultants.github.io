@@ -14,4 +14,5 @@ Hi folks!
 
 Recruiting Scala developers (by Jamie Allen from Typesafe)
 
-* Scala, Hiring [4 Interview Questions for Scala Developers](http://news.dice.com/2014/09/12/4-interview-questions-scala-developers/)
+* \[Scala\] \[Hiring\] [4 Interview Questions for Scala Developers](http://news.dice.com/2014/09/12/4-interview-questions-scala-developers/)
+* \[Distributed Systems\] [Raft explained](http://thesecretlivesofdata.com/raft/)

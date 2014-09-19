@@ -16,3 +16,5 @@ Recruiting Scala developers (by Jamie Allen from Typesafe)
 
 * \[Scala\] \[Hiring\] [4 Interview Questions for Scala Developers](http://news.dice.com/2014/09/12/4-interview-questions-scala-developers/)
 * \[Distributed Systems\] [Raft explained](http://thesecretlivesofdata.com/raft/)
+* \[JVM\] [Useful JVM tools](http://zeroturnaround.com/rebellabs/the-6-built-in-jdk-tools-the-average-developer-should-learn-to-use-more/)
+* \[Working\] [Teams organization at Shutterstock](http://bits.shutterstock.com/2014/05/08/the-secret-to-shutterstock-tech-teams/?utm_source=Software+Lead+Weekly&utm_campaign=95326a59f2-SoftwareLeadWeekly_95&utm_medium=email&utm_term=0_efe3d3cd5b-95326a59f2-198270941)

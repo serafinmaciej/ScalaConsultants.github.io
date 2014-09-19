@@ -12,6 +12,6 @@ tags:
 
 Hi folks! 
 
-\[DESCRIPTION\]
+Recruiting Scala developers (by Jamie Allen from Typesafe)
 
-* \[Tag\] [Title](link)
+* Scala, Hiring [4 Interview Questions for Scala Developers](http://news.dice.com/2014/09/12/4-interview-questions-scala-developers/)

@@ -26,3 +26,5 @@ Recruiting Scala developers (by Jamie Allen from Typesafe)
 * \[NoSQL\] [5 quick tips for using Redis](http://architects.dzone.com/articles/5-key-takeaways-developing)
 * \[Open Source\] [TODO Group Inititive](http://todogroup.org/#)
 * \[???\] [???](http://holykaw.alltop.com/what-is-a-hacker-really-video)
+* \[Android\] ART vs. Dalvik comparison. ART beats Dalvik to the ground regarding performance which means better battery life a sole reason to upgrade. If you have Android 4.4 device you can change it under Developer Options. http://blog.newrelic.com/2014/07/07/android-art-vs-dalvik/
+* \[Hacking\] What is a hacker, really? http://holykaw.alltop.com/what-is-a-hacker-really-video

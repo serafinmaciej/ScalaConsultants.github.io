@@ -12,19 +12,23 @@ tags:
 
 Hi folks! 
 
-Recruiting Scala developers (by Jamie Allen from Typesafe)
+Ready for some interesting links from the web? This week there's a lot of Scala and Programming in general. Falko Riemenschneider is foretells end of OOP, The Secret Lives Of Data helps us to imagine how Raft works using a very nice animation, Typesafe strengthens their tools and more. Enjoy your read!
 
 * \[Scala\] \[Hiring\] [4 Interview Questions for Scala Developers](http://news.dice.com/2014/09/12/4-interview-questions-scala-developers/)
 * \[Distributed Systems\] [Raft explained](http://thesecretlivesofdata.com/raft/)
-* \[JVM\] [Useful JVM tools](http://zeroturnaround.com/rebellabs/the-6-built-in-jdk-tools-the-average-developer-should-learn-to-use-more/)
-* \[Working\] [Teams organization at Shutterstock](http://bits.shutterstock.com/2014/05/08/the-secret-to-shutterstock-tech-teams/?utm_source=Software+Lead+Weekly&utm_campaign=95326a59f2-SoftwareLeadWeekly_95&utm_medium=email&utm_term=0_efe3d3cd5b-95326a59f2-198270941)
-* \[Computer graphics\] [NVIDIA vs conspiracy theorists](http://www.engadget.com/2014/09/18/NVIDIA-proves-moon-landing/)
-* \[Programming\] [End of OOP is close](http://www.falkoriemenschneider.de/a__2014-09-17__Programming-without-objects.html?utm_source=dlvr.it&utm_medium=twitter)
-* \[Scala\] [Getting started with Apache Spark on Reactive Platform](http://info.typesafe.com/acton/fs/blocks/showLandingPage/a/3608/p/p-0025/t/page/fm/13?_ga=1.168887590.682040484.1405881209)
+
+Awesome animation explaining how Raft consensus protcool works in practice. Nice, especially if you are allergic to convoluted white-papers.
+
+* \[Programming\] [End of OOP is close](http://www.falkoriemenschneider.de/a__2014-09-17__Programming-without-objects.html)
 * \[Scala\] [New release of Akka Streams](http://akka.io/news/2014/09/12/akka-streams-0.7-released.html)
 * \[Scala\] [Typesafe releases dbuild](https://typesafe.com/blog/announcing-dbuild)
+
+Build aggregator from Typesafe. Surely will strengthen the Scala ecosystem and prevent compatibility issues. Worth to take a look. 
+
 * \[NoSQL\] [5 quick tips for using Redis](http://architects.dzone.com/articles/5-key-takeaways-developing)
-* \[Open Source\] [TODO Group Inititive](http://todogroup.org/#)
+
+Itamar Haber is talking about 5 things he learned when using Redis. If you are using this great database or planning to do so it's something for you. 
+
 * \[???\] [???](http://holykaw.alltop.com/what-is-a-hacker-really-video)
 * \[Android\] ART vs. Dalvik comparison. ART beats Dalvik to the ground regarding performance which means better battery life a sole reason to upgrade. If you have Android 4.4 device you can change it under Developer Options. http://blog.newrelic.com/2014/07/07/android-art-vs-dalvik/
 * \[Hacking\] What is a hacker, really? http://holykaw.alltop.com/what-is-a-hacker-really-video

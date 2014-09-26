@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2014-06-24 00:11:55
+date: 2014-06-23 00:11:55
 layout: post
 slug: akka-streams-and-rabbitmq
 title: Akka Streams and RabbitMQ

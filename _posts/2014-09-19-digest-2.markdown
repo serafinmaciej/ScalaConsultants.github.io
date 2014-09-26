@@ -23,6 +23,9 @@ Jamie Allen from Typesafe explains how to interview Scala developers.
 Awesome animation explaining how Raft consensus protcool works in practice. Nice, especially if you are allergic to convoluted white-papers.
 
 * \[Programming\] [End of OOP is close](http://www.falkoriemenschneider.de/a__2014-09-17__Programming-without-objects.html)
+
+Do we need OOP at all?
+
 * \[Scala\] [New release of Akka Streams](http://akka.io/news/2014/09/12/akka-streams-0.7-released.html)
 
 New alpha release of Akka Streams with new FlowGraph DSL.

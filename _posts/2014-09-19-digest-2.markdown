@@ -40,7 +40,7 @@ Itamar Haber is talking about 5 things he learned when using Redis. If you are u
 
 * \[Hacking\] [What is a hacker?](http://holykaw.alltop.com/what-is-a-hacker-really-video)
 
-(Daj opis tutaj)
+Short story exposing what hcking really is. Worth to check out. 
 
 * \[Android\] [Art on Android](http://blog.newrelic.com/2014/07/07/android-art-vs-dalvik/)
 

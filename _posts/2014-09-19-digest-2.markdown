@@ -8,6 +8,13 @@ summary: Collection of interesting links from around of web choosen for you by s
 author: Scalac Team
 tags:
 - Scalac Weekly Digest
+- Scala
+- Hiring
+- Distributed Systems
+- Programming
+- NoSQL
+- Hacking
+- Android
 ---
 
 Hi folks! 

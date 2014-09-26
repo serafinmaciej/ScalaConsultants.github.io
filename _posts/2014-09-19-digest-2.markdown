@@ -38,6 +38,10 @@ Build aggregator from Typesafe. Surely will strengthen the Scala ecosystem and p
 
 Itamar Haber is talking about 5 things he learned when using Redis. If you are using this great database or planning to do so it's something for you. 
 
-* \[???\] [???](http://holykaw.alltop.com/what-is-a-hacker-really-video)
-* \[Android\] ART vs. Dalvik comparison. ART beats Dalvik to the ground regarding performance which means better battery life a sole reason to upgrade. If you have Android 4.4 device you can change it under Developer Options. http://blog.newrelic.com/2014/07/07/android-art-vs-dalvik/
-* \[Hacking\] What is a hacker, really? http://holykaw.alltop.com/what-is-a-hacker-really-video
+* \[Hacking\] [What is a hacker?](http://holykaw.alltop.com/what-is-a-hacker-really-video)
+
+(Daj opis tutaj)
+
+* \[Android\] [Art on Android](http://blog.newrelic.com/2014/07/07/android-art-vs-dalvik/)
+
+ART vs. Dalvik comparison. ART beats Dalvik to the ground regarding performance which means better battery life a sole reason to upgrade. If you have Android 4.4 device you can change it under Developer Options. 

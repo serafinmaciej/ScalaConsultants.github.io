@@ -20,7 +20,7 @@ Jamie Allen from Typesafe explains how to interview Scala developers.
 
 * \[Distributed Systems\] [Raft explained](http://thesecretlivesofdata.com/raft/)
 
-Awesome animation explaining how Raft consensus protcool works in practice. Nice, especially if you are allergic to convoluted white-papers.
+Awesome animation explaining how Raft consensus protocol works in practice. Nice, especially if you are allergic to convoluted white-papers.
 
 * \[Programming\] [End of OOP is close](http://www.falkoriemenschneider.de/a__2014-09-17__Programming-without-objects.html)
 

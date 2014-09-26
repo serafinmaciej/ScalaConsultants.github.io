@@ -21,14 +21,16 @@ Awesome animation explaining how Raft consensus protcool works in practice. Nice
 
 * \[Programming\] [End of OOP is close](http://www.falkoriemenschneider.de/a__2014-09-17__Programming-without-objects.html)
 * \[Scala\] [New release of Akka Streams](http://akka.io/news/2014/09/12/akka-streams-0.7-released.html)
-* \[Scala\] [Typesafe releases dbuild](https://typesafe.com/blog/announcing-dbuild)
+ 
+* \[Scala\] DBuild in Typsafes answer to Scala version upgrade issues and a debugging tool at the same time. Basic idea is to compile whole Scala ecosystem with every Scala compiler build to see if something breaks. This is exciting! 
+[Typesafe releases dbuild](https://typesafe.com/blog/announcing-dbuild)
 
-Build aggregator from Typesafe. Surely will strengthen the Scala ecosystem and prevent compatibility issues. Worth to take a look. 
 
 * \[NoSQL\] [5 quick tips for using Redis](http://architects.dzone.com/articles/5-key-takeaways-developing)
 
 Itamar Haber is talking about 5 things he learned when using Redis. If you are using this great database or planning to do so it's something for you. 
 
-* \[???\] [???](http://holykaw.alltop.com/what-is-a-hacker-really-video)
+
 * \[Android\] ART vs. Dalvik comparison. ART beats Dalvik to the ground regarding performance which means better battery life a sole reason to upgrade. If you have Android 4.4 device you can change it under Developer Options. http://blog.newrelic.com/2014/07/07/android-art-vs-dalvik/
-* \[Hacking\] What is a hacker, really? http://holykaw.alltop.com/what-is-a-hacker-really-video
+* 
+* \[Hacking\] What is a hacker, really? If you're having trouble to explain hacker term to not so tech savvy people as I do, this video will help. http://holykaw.alltop.com/what-is-a-hacker-really-video

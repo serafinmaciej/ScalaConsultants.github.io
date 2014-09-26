@@ -39,7 +39,7 @@ New alpha release of Akka Streams with new FlowGraph DSL.
 
 * \[Scala\] [Typesafe releases dbuild](https://typesafe.com/blog/announcing-dbuild)
 
-Build aggregator from Typesafe. Surely will strengthen the Scala ecosystem and prevent compatibility issues. Worth to take a look. 
+DBuild in Typsafes answer to Scala version upgrade issues and a debugging tool at the same time. Basic idea is to compile whole Scala ecosystem with every Scala compiler build to see if something breaks. This is exciting! 
 
 * \[NoSQL\] [5 quick tips for using Redis](http://architects.dzone.com/articles/5-key-takeaways-developing)
 
@@ -47,7 +47,7 @@ Itamar Haber is talking about 5 things he learned when using Redis. If you are u
 
 * \[Hacking\] [What is a hacker?](http://holykaw.alltop.com/what-is-a-hacker-really-video)
 
-Short story exposing what hcking really is. Worth to check out. 
+What is a hacker, really? If you're having trouble to explain hacker term to not so tech savvy people as I do, this video will help. 
 
 * \[Android\] [Art on Android](http://blog.newrelic.com/2014/07/07/android-art-vs-dalvik/)
 

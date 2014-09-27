@@ -19,6 +19,7 @@ INTRO
 * \[Mobile\] [Mobile development Facebook scale](http://highscalability.com/blog/2014/9/22/how-facebook-makes-mobile-work-at-scale-for-all-phones-on-al.html)
 * \[Robots\] [Teachable robots](http://www.technologyreview.com/news/530871/robots-that-learn-through-repetition-not-programming/)
 * \[Artificial Intelligence\] [Reverse Engineer Deep Mind](http://robohub.org/artificial-general-intelligence-that-plays-atari-video-games-how-did-deepmind-do-it/)
+* \[TDD\] [Writing testable code](http://misko.hevery.com/attachments/Guide-Writing%20Testable%20Code.pdf)
 * \[TAG\] [NAME](LINK)
 
 DESCRIPTION

@@ -15,6 +15,7 @@ This blog uses [Jekyll](http://jekyllrb.com/) with [kramdown](http://kramdown.ge
 GitHub/Jekyll combo doesn't really allow for making too dynamic pages. The Tags pages have to be re-generated locally and copied to the project everytime you add a new post or change the tags. 
 
 To generate completely fresh set of Tags pages:
+
 1. Clear the _site directory.
 2. Clear the tags directory.
 3. Run the project as usual e.g. `jekyll serve` (or just build it using `jekyll build`).

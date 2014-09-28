@@ -12,6 +12,10 @@ This blog uses [Jekyll](http://jekyllrb.com/) with [kramdown](http://kramdown.ge
 3. browse on http://localhost:4000/
 
 ###Mind the Tags
-GitHub doesn't really allow making too dynamic pages, so the Tags pages have to be generated locally and copied to the project. 
+GitHub/Jekyll combo doesn't really allow for making too dynamic pages. The Tags pages have to be re-generated locally and copied to the project everytime you add a new post or change the tags. 
 
-Everytime you add new post or change tags, you have to run the server locally and copy generated _site/tags directory to the main project directory.
+To generate completely fresh set of Tags pages:
+1. Clear the _site directory.
+2. Clear the tags directory.
+3. Run the project as usual e.g. `jekyll serve` (or just build it using `jekyll build`).
+4. Copy everything from _site/tags to tags directory.

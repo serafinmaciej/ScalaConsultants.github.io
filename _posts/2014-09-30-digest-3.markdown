@@ -20,6 +20,10 @@ INTRO
 * \[Robots\] [Teachable robots](http://www.technologyreview.com/news/530871/robots-that-learn-through-repetition-not-programming/)
 * \[Artificial Intelligence\] [Reverse Engineer Deep Mind](http://robohub.org/artificial-general-intelligence-that-plays-atari-video-games-how-did-deepmind-do-it/)
 * \[TDD\] [Writing testable code](http://misko.hevery.com/attachments/Guide-Writing%20Testable%20Code.pdf)
+* \[Emacs\] [Emacs on StackExchange](http://emacs.stackexchange.com/)
+* \[HFT & Microwave networks](http://sniperinmahwah.wordpress.com/2014/09/22/hft-in-my-backyard-part-i/)
+* \[Cities of future\](http://www.theatlantic.com/international/archive/2014/09/songdo-south-korea-the-city-of-the-future/380849/?single_page=true)
+* \[Internet surveillance in Australia\](http://www.smh.com.au/digital-life/consumer-security/new-laws-could-give-asio-a-warrant-for-the-entire-internet-jail-journalists-and-whistleblowers-20140923-10kzjz.html)
 * \[TAG\] [NAME](LINK)
 
 DESCRIPTION

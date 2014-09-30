@@ -25,6 +25,7 @@ INTRO
 * \[Cities of future\](http://www.theatlantic.com/international/archive/2014/09/songdo-south-korea-the-city-of-the-future/380849/?single_page=true)
 * \[Internet surveillance in Australia\](http://www.smh.com.au/digital-life/consumer-security/new-laws-could-give-asio-a-warrant-for-the-entire-internet-jail-journalists-and-whistleblowers-20140923-10kzjz.html)
 * \[.sbtconfig is deprecated\](https://medium.com/@jan______/sbtconfig-is-deprecated-650d6ff10236)
-* \[TAG\] [NAME](LINK)
+* \[Javascript\] [React.js](https://facebook.github.io/react/)
+* \[Machine Learning\] [Breaking Silk Road Captcha](https://github.com/mieko/sr-captcha)
 
 DESCRIPTION

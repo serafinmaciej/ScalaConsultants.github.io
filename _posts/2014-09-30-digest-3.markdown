@@ -19,13 +19,7 @@ INTRO
 * \[Mobile\] [Mobile development Facebook scale](http://highscalability.com/blog/2014/9/22/how-facebook-makes-mobile-work-at-scale-for-all-phones-on-al.html)
 * \[Robots\] [Teachable robots](http://www.technologyreview.com/news/530871/robots-that-learn-through-repetition-not-programming/)
 * \[Artificial Intelligence\] [Reverse Engineer Deep Mind](http://robohub.org/artificial-general-intelligence-that-plays-atari-video-games-how-did-deepmind-do-it/)
-* \[TDD\] [Writing testable code](http://misko.hevery.com/attachments/Guide-Writing%20Testable%20Code.pdf)
-* \[Emacs\] [Emacs on StackExchange](http://emacs.stackexchange.com/)
-* \[HFT & Microwave networks](http://sniperinmahwah.wordpress.com/2014/09/22/hft-in-my-backyard-part-i/)
-* \[Cities of future\](http://www.theatlantic.com/international/archive/2014/09/songdo-south-korea-the-city-of-the-future/380849/?single_page=true)
-* \[Internet surveillance in Australia\](http://www.smh.com.au/digital-life/consumer-security/new-laws-could-give-asio-a-warrant-for-the-entire-internet-jail-journalists-and-whistleblowers-20140923-10kzjz.html)
 * \[.sbtconfig is deprecated\](https://medium.com/@jan______/sbtconfig-is-deprecated-650d6ff10236)
-* \[Javascript\] [React.js](https://facebook.github.io/react/)
 * \[Machine Learning\] [Breaking Silk Road Captcha](https://github.com/mieko/sr-captcha)
 
 DESCRIPTION

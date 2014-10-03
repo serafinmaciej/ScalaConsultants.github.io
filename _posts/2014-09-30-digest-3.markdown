@@ -42,6 +42,9 @@ Programming AI is hard and we tend to pass hard task to machines. So why won't w
 Deep mind did some awesome work in the field of deep learning and was quickly acquired by Google. now this open source project wants to rebuild their project. Looks promising
 
 * \[Scala\] [.sbtconfig is deprecated](https://medium.com/@jan______/sbtconfig-is-deprecated-650d6ff10236)
+
+How to configure SBT 0.13.6.
+
 * \[Machine Learning\] [Breaking Silk Road Captcha](https://github.com/mieko/sr-captcha)
  
 Although we aren't fans nor users of Silk Road it's interesting how sometimes it's easy to break into a system by using some smart Machine Learning tricks.

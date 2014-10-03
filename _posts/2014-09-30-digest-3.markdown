@@ -19,7 +19,7 @@ tags:
 
 Hi folks! 
 
-INTRO
+This weeks edition of digest is really diverse. We have topics from all over IT, from work organisation, throught the world of mobile, Scala and robots up to Machine Learning. We are sure everyone will find something worthwhile.
 
 * \[Working\] [Why I banned email](https://medium.com/life-at-primeloop/putting-email-in-its-place-27757946d9fe)
 

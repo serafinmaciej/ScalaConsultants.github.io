@@ -18,5 +18,6 @@ INTRO
 * \[CS\] [The best academic papers in CS](http://arnetminer.org/conferencebestpapers)
 * \[Working\] [Code review in practice](http://blog.salsitasoft.com/practical-lessons-in-peer-code-review)
 * \[Scala\] [Scala pickling](https://github.com/scala/pickling)
+* \[Internet of Things\] [Google Physical Web](https://github.com/google/physical-web)
 * \[TAG\] [NAME](URL)
 DESCRIPTION

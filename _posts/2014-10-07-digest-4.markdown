@@ -17,5 +17,6 @@ INTRO
 * \[Game development\] [Making Fast-Paced Multiplayer Networked Games is Hard](http://www.gamasutra.com/blogs/MarkMennell/20140929/226628/Making_FastPaced_Multiplayer_Networked_Games_is_Hard.php)
 * \[CS\] [The best academic papers in CS](http://arnetminer.org/conferencebestpapers)
 * \[Working\] [Code review in practice](http://blog.salsitasoft.com/practical-lessons-in-peer-code-review)
+* \[Scala\] [Scala pickling](https://github.com/scala/pickling)
 * \[TAG\] [NAME](URL)
 DESCRIPTION

@@ -20,5 +20,6 @@ INTRO
 * \[Scala\] [Scala pickling](https://github.com/scala/pickling)
 * \[Internet of Things\] [Google Physical Web](https://github.com/google/physical-web)
 * \[Robots\] [Emrging trends in robotics](http://news.nationalgeographic.com/news/2014/08/140825-micro-robots-robert-wood-emerging-explorer-science-engineering-technology/)
+* \[Architecture\](https://blog.yourkarma.com/building-microservices-at-karma)
 * \[TAG\] [NAME](URL)
 DESCRIPTION

@@ -24,5 +24,6 @@ INTRO
 * \[NoSQL\] [NoSQL benchmark](http://java.dzone.com/articles/dissecting-nosql-benchmark)
 * \[Machine Learning\] [Detect gender on Instagram](http://totems.co/blog/machine-learning-nodejs-gender-instagram) 
 * \[Android\] [Saving state](https://speakerdeck.com/cyrilmottier/deep-dive-into-android-state-restoration)
+* \[Javascript\] [Rethinking async with macros and FSM](http://sriku.org/blog/2014/02/11/bye-bye-js-promises/)
 * \[TAG\] [NAME](URL)
 DESCRIPTION

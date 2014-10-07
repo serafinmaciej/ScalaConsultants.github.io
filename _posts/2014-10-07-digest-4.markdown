@@ -26,5 +26,6 @@ INTRO
 * \[Android\] [Saving state](https://speakerdeck.com/cyrilmottier/deep-dive-into-android-state-restoration)
 * \[Javascript\] [Rethinking async with macros and FSM](http://sriku.org/blog/2014/02/11/bye-bye-js-promises/)
 * \[Security\] [Security Challenge](http://www.cryptopals.com/)
-* \[DevOps\] [DevOps] http://opensource.com/resources/what-is-openstack
+* \[DevOps\] [What is OpenStack?] (http://opensource.com/resources/what-is-openstack)
+* \[Game development\] [A Great Disturbance in Development: The Dark Side of Early Access](http://www.gdcvault.com/play/1020874/A-Great-Disturbance-in-Development)
 DESCRIPTION

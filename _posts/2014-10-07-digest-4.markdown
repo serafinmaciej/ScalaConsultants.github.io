@@ -22,5 +22,6 @@ INTRO
 * \[Robots\] [Emrging trends in robotics](http://news.nationalgeographic.com/news/2014/08/140825-micro-robots-robert-wood-emerging-explorer-science-engineering-technology/)
 * \[Architecture\] [Microservice at Karma](https://blog.yourkarma.com/building-microservices-at-karma)
 * \[NoSQL\] [NoSQL benchmark](http://java.dzone.com/articles/dissecting-nosql-benchmark)
+* \[Machine Learning\] [Detect gender on Instagram](http://totems.co/blog/machine-learning-nodejs-gender-instagram) 
 * \[TAG\] [NAME](URL)
 DESCRIPTION

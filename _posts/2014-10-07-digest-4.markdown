@@ -23,5 +23,6 @@ INTRO
 * \[Architecture\] [Microservice at Karma](https://blog.yourkarma.com/building-microservices-at-karma)
 * \[NoSQL\] [NoSQL benchmark](http://java.dzone.com/articles/dissecting-nosql-benchmark)
 * \[Machine Learning\] [Detect gender on Instagram](http://totems.co/blog/machine-learning-nodejs-gender-instagram) 
+* \[Android\] [Saving state](https://speakerdeck.com/cyrilmottier/deep-dive-into-android-state-restoration)
 * \[TAG\] [NAME](URL)
 DESCRIPTION

@@ -4,46 +4,40 @@ date: 2014-01-13 14:10:22
 layout: post
 slug: about-add
 title: About API driven development
-summary: Today I'm going to tell you few things about API driven development that I learned while working on my last project, where we relied heavily on the API not only as a way of getting the apps working, but also as a central point of development process.
+summary: Quick tutorial how to get setup a mail reply with Play 2.x and Mandrill.
 author: Patryk Jażdżewski
 tags:
-- API
-- API driven development
-- ADD
+
 ---
 
-Today I'm going to tell you few things about API driven development that I learned while working on my last project, where we relied heavily on the API not only as a way of getting the apps working, but also as a central point of development process.
+Hi everyone. Today I'm going to show you how to setup a mail reply feature using Play 2.x backend server and Mandrill email service. On the internet you can find informations about distinct features, but not how to glue it all together. This post will guide you step by step to create a working solution. Originally I created the reply while working for an awesome startup called JobHive, so it might get a bit specific, but using the general idea and code example you can prepare something on your own.
 
-##What is API driven development? 
-API driven development is a programming methodology that puts API in the center of attention and development effort. In this case, the API helps with:
+### Why?
 
-- running the app – pretty self explanatory, we use the API to get data from server to frontend app, which is responsible for handling and displaying it to the user
-- communication – the API is not only a contract between frontenders and backenders, but also a bridge that joins them. In this case, a clear separation between front- and backend work may lead to working in silos, with developers from one group having little or no knowledge about the other group. The back has to effectively query the DB and format the data for return. The frontend people on the other hand have to handle and display the data properly. With ADD even the slightest change in the contract has to been consulted between people on both sides. In order to do it properly they have to talk to each other and negotiate a solution that is satisfactory for both sides
-- signalling requirements – the API specifies what behaviour and return data is expected from the backend system
-- keeping it all together – having the API, schema, its description and usage examples in one place helps your developers to be up to date with requirements 
-- testing – having a clear and well defined schema helps you test your software 
-- opening your app to the world – when the contract is fixed and respected, other developers from outside are able to operate using your API and create applications you have never even dreamed about
+As you probably know many web apps, forum and social media sites use email as a way of notifying their users about activity on site. Portals like Github and others go even further. As most notifications are one-way only, Github allows users to communicate via email in an biderctional manner, you can not only receive emails but also reply to them. Which in some cases might be super useful. 
 
-##Our approach
-I was working on an app that uses [AngularJS](http://angularjs.org/) for UI and Scala in the backend. In order to be up to date with all API requirements we created an automatic test suite that tested our return data against external schema for JSON response. We made sure that all the needed keys are present in the response, the type of each field matches and that the whole JSON structure is what we expect. Basically, this test suite became a constraint that caught bugs and prevented reckless API changes and mistakes from being applied in the code. 
-Every time there was a need for a new API call, the frontender in need would negotiate with backender in charge of the implementation. After they both agreed on a solution that would fit the frontend needs and would be efficient on the backend side, the frontender would update the doc in [Apiary](http://apiary.io/) and the backender would create a test for that. Then they would both proceed with the implementation.
+I was tasked with doing such a thing for our conversation system. When somebody sends you a message and you aren't logged in the message also lands in your email inbox. Since you can receive an message via email it seems logical to allow replying via the same channel.
 
-##Lessons learned
-During the development I learned a few things, some of which are pretty obvious (although still worth mentioning), some fresh and new.
+We don't want to deal with technicalities of mail servers so we delegated this work to Mandrill.
 
-- Communicate! Communicate! Communicate! Don't live in a silo. Try to think not only about your targets and constraints, but also about the other side of the API
-- When you know how the problem looks on both sides – negotiate to find the best solution
-- Keep the important information about your system in one place that is easy to find. This will help keep things clear during development
-- Provide examples – they explain more than plain text
-- The API is too important to have sloppy tests or no tests at all
-- Negotiation is about finding compromises. If the backend side is dominating, the API might end up with insufficient data for frontend to operate freely. If frontend always has the last word, the API might end up returning a huge blob of mostly unused data that was returned just in case. 
+### How?
 
-##Want more?
-Some resources for further reading 
+The general plan is as follows:
 
-- [http://apiary.io/](http://apiary.io/) a great tool for specifying and testing your API, we used it a lot
-- [http://developers.helloreverb.com/swagger/](http://developers.helloreverb.com/swagger/) toolbox similar to Apiary
-- [http://www.infoq.com/presentations/api-driven-development](http://www.infoq.com/presentations/api-driven-development) Apiary CEO talks about API driven development
-- [https://speakerdeck.com/kennethreitz/api-driven-development](https://speakerdeck.com/kennethreitz/api-driven-development) ADD at Heroku
-- [https://github.com/ScalaConsultants/jsonComparator](https://github.com/ScalaConsultants/jsonComparator) a small tool what might help you in testing your API against a given schema
+* Setup the mail server to allow replies
+* Send a message in such a way that an answer is possible
+* Process the reply
 
+## Setup Mandrill
+
+## Creates inbound routes in backend server
+
+## Send prepared messages
+
+## Parse responesma
+
+### Links
+
+[Inbound Email Overview](http://help.mandrill.com/entries/21699367-Inbound-Email-Processing-Overview)
+
+[Response format](http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-)

@@ -28,4 +28,7 @@ INTRO
 * \[Security\] [Security Challenge](http://www.cryptopals.com/)
 * \[DevOps\] [What is OpenStack?] (http://opensource.com/resources/what-is-openstack)
 * \[Game development\] [A Great Disturbance in Development: The Dark Side of Early Access](http://www.gdcvault.com/play/1020874/A-Great-Disturbance-in-Development)
+* \[Improving Process\] http://zachholman.com/talk/move-fast-break-nothing/
+* \[Startups\] All your payments in one place http://bgr.com/2014/10/07/plastc-card-release-date-price-preorders/
+
 DESCRIPTION

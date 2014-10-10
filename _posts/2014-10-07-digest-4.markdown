@@ -8,11 +8,18 @@ summary: Collection of interesting links from around of web choosen for you by s
 author: Scalac Team
 tags:
 - Scalac Weekly Digest
+- Game development
+- Working
+- Internet of Things
+- Architecture
+- NoSQL
+- Security
+- Process
 ---
 
 Hi folks! 
 
-INTRO
+Welcome to the this weeks edition of Scalac digest. This time we prepared few very diverse topics. This week we learned about improving workflow, architecture, IoT and even a bit about game development. Now it's time to share the knowledge. We hope you will enjoy it. 
 
 * \[Game development\] [Making Fast-Paced Multiplayer Networked Games is Hard](http://www.gamasutra.com/blogs/MarkMennell/20140929/226628/Making_FastPaced_Multiplayer_Networked_Games_is_Hard.php)
 
@@ -38,6 +45,6 @@ In the current flood of NoSQL datastores it easy to loose track of what are you 
 
 Do like challenges and cryptography? If yes, then this site is for you.
 
-* \[Improving Process\] [Moving fast at Github](http://zachholman.com/talk/move-fast-break-nothing/)
+* \[Process\] [Moving fast at Github](http://zachholman.com/talk/move-fast-break-nothing/)
 
 Zach Holman from Github talks about how to move fast with improvements while keeping code quality and customer satisfaction. Great article!

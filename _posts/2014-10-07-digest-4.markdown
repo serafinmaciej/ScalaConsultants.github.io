@@ -15,20 +15,29 @@ Hi folks!
 INTRO
 
 * \[Game development\] [Making Fast-Paced Multiplayer Networked Games is Hard](http://www.gamasutra.com/blogs/MarkMennell/20140929/226628/Making_FastPaced_Multiplayer_Networked_Games_is_Hard.php)
-* \[CS\] [The best academic papers in CS](http://arnetminer.org/conferencebestpapers)
-* \[Working\] [Code review in practice](http://blog.salsitasoft.com/practical-lessons-in-peer-code-review)
-* \[Scala\] [Scala pickling](https://github.com/scala/pickling)
-* \[Internet of Things\] [Google Physical Web](https://github.com/google/physical-web)
-* \[Robots\] [Emrging trends in robotics](http://news.nationalgeographic.com/news/2014/08/140825-micro-robots-robert-wood-emerging-explorer-science-engineering-technology/)
-* \[Architecture\] [Microservice at Karma](https://blog.yourkarma.com/building-microservices-at-karma)
-* \[NoSQL\] [NoSQL benchmark](http://java.dzone.com/articles/dissecting-nosql-benchmark)
-* \[Machine Learning\] [Detect gender on Instagram](http://totems.co/blog/machine-learning-nodejs-gender-instagram) 
-* \[Android\] [Saving state](https://speakerdeck.com/cyrilmottier/deep-dive-into-android-state-restoration)
-* \[Javascript\] [Rethinking async with macros and FSM](http://sriku.org/blog/2014/02/11/bye-bye-js-promises/)
-* \[Security\] [Security Challenge](http://www.cryptopals.com/)
-* \[DevOps\] [What is OpenStack?] (http://opensource.com/resources/what-is-openstack)
-* \[Game development\] [A Great Disturbance in Development: The Dark Side of Early Access](http://www.gdcvault.com/play/1020874/A-Great-Disturbance-in-Development)
-* \[Improving Process\] http://zachholman.com/talk/move-fast-break-nothing/
-* \[Startups\] All your payments in one place http://bgr.com/2014/10/07/plastc-card-release-date-price-preorders/
 
-DESCRIPTION
+Mark Mennell dives into the topic of creating multiplayer games. Interesting for both aspiring gamedevs and independent creators.
+
+* \[Working\] [Code review in practice](http://blog.salsitasoft.com/practical-lessons-in-peer-code-review)
+
+Some thoughts on introducing Code Review and how it should work in practice, but not always is. Worth checking out. 
+
+* \[Internet of Things\] [Google Physical Web](https://github.com/google/physical-web)
+
+Seeing the huge potential in Internet of Things Google launched a project that might end up as a search engine for smart things. The future is now.   
+
+* \[Architecture\] [Microservice at Karma](https://blog.yourkarma.com/building-microservices-at-karma)
+
+Short article about practical considerations of microservices, benefits and challenges it brings. A 'must read' if you are thinking about breaking monolithic architectures. 
+
+* \[NoSQL\] [NoSQL benchmark](http://java.dzone.com/articles/dissecting-nosql-benchmark)
+
+In the current flood of NoSQL datastores it easy to loose track of what are you actually looking for. This benchmark will help you to compare popular solutions in terms of performance.
+ 
+* \[Security\] [Security Challenge](http://www.cryptopals.com/)
+
+Do like challenges and cryptography? If yes, then this site is for you.
+
+* \[Improving Process\] [Moving fast at Github](http://zachholman.com/talk/move-fast-break-nothing/)
+
+Zach Holman from Github talks about how to move fast with improvements while keeping code quality and customer satisfaction. Great article!

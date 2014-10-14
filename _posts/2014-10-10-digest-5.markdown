@@ -17,5 +17,6 @@ DESCRIPTION
 * \[Security\] [TrueCrypt alternative](http://www.esecurityplanet.com/open-source-security/veracrypt-a-worthy-truecrypt-alternative.html)
 * \[Javascript\] [JS heat map](https://github.com/zeman/perfmap)
 * \[Hiring\] [Resume Driven Development](http://radar.oreilly.com/2014/10/resume-driven-development.html)
+* \[NoSQL\] [BASE vs ACID in banking](http://highscalability.com/blog/2013/5/1/myth-eric-brewer-on-why-banks-are-base-not-acid-availability.html)
 * \[Tag\] [title](link)
 

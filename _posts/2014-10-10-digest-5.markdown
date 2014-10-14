@@ -15,5 +15,6 @@ Hi folks!
 DESCRIPTION
 
 * \[Security\] [TrueCrypt alternative](http://www.esecurityplanet.com/open-source-security/veracrypt-a-worthy-truecrypt-alternative.html)
+* \[Javascript\] [JS heat map](https://github.com/zeman/perfmap)
 * \[Tag\] [title](link)
 

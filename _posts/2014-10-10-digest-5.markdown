@@ -14,5 +14,6 @@ Hi folks!
 
 DESCRIPTION
 
+* \[Security\] [TrueCrypt alternative](http://www.esecurityplanet.com/open-source-security/veracrypt-a-worthy-truecrypt-alternative.html)
 * \[Tag\] [title](link)
 

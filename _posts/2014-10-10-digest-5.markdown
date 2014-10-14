@@ -16,5 +16,6 @@ DESCRIPTION
 
 * \[Security\] [TrueCrypt alternative](http://www.esecurityplanet.com/open-source-security/veracrypt-a-worthy-truecrypt-alternative.html)
 * \[Javascript\] [JS heat map](https://github.com/zeman/perfmap)
+* \[Hiring\] [Resume Driven Development](http://radar.oreilly.com/2014/10/resume-driven-development.html)
 * \[Tag\] [title](link)
 

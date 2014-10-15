@@ -27,3 +27,4 @@ DESCRIPTION
 * \[Programming\] [Compile time enforced immutability in D](http://www.drdobbs.com/architecture-and-design/function-purity-and-immutable-data-struc/240169087)
 * \[Distributed Systems\] [Intro to consistend hashing](http://digest.nushackers.org/2014/09/25/consistent-hashing/)
 * \[Databases\] [Real time analytics at LinkedIn](http://engineering.linkedin.com/analytics/real-time-analytics-massive-scale-pinot)
+* \[Scala\] [Future of Scala - Interview](http://zeroturnaround.com/rebellabs/interview-with-typesafe-4-answers-about-the-past-present-and-future-of-scala-development/)

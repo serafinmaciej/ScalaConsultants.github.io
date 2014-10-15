@@ -19,6 +19,6 @@ DESCRIPTION
 * \[Hiring\] [Resume Driven Development](http://radar.oreilly.com/2014/10/resume-driven-development.html)
 * \[NoSQL\] [BASE vs ACID in banking](http://highscalability.com/blog/2013/5/1/myth-eric-brewer-on-why-banks-are-base-not-acid-availability.html)
 * \[Domain Driven Development\] [Intro to Domain Driven Development](http://www.ntcoding.blogspot.com/2014/05/come-and-join-innovative-ddd-community.html)
-* \[Tag\] [title](link)
+* \[Distributed Programming\] [Message Queues Comparison](http://www.bravenewgeek.com/dissecting-message-queues/)
 * \[Programming?\] Hammock Driven Development by Rich Hickey (https://www.youtube.com/watch?v=f84n5oFoZBc)
 

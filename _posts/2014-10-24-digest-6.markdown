@@ -1,0 +1,18 @@
+---
+comments: true
+date: 2014-10-24 16:10:00
+layout: post
+slug: digest-6
+title: Scalac Weekly Digest#6
+summary: Collection of interesting links from around of web chosen for you by Scalac team
+author: Scalac Team
+tags:
+- Scalac Weekly Digest
+---
+
+Hi folks! 
+
+[DESC]
+
+* \[TAG\] [title](link)
+

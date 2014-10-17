@@ -1,0 +1,40 @@
+---
+comments: true
+date: 2014-10-17 16:10:00
+layout: post
+slug: digest-5
+title: Scalac Weekly Digest#5
+summary: Collection of interesting links from around of web chosen for you by Scalac team
+author: Scalac Team
+tags:
+- Scalac Weekly Digest
+- Domain Driven Development
+- Scala
+- Distributed Systems
+- Databases
+---
+
+Hi folks! 
+
+Welcome to the fifth edition of Scalac Weekly Digest! We hope you enjoy it and that you will stay with us longer. This weeks digest happens to concentrate on the interesting topic of distributed computing and Akka. We love it and hope you will too. See you next week.
+
+* \[Domain Driven Development\] [Intro to Domain Driven Development](http://www.ntcoding.blogspot.com/2014/05/come-and-join-innovative-ddd-community.html)
+
+An article about the principles of Domain Driven Development. DDD is experiencing renaissance thanks to technologies like Akka, message buses and concepts like RESTful apis. If you are looking for a way to improve communication between business and tech people then DDD might be something for you.
+
+* \[Scala\] [Distributed Consensus in Akka](http://letitcrash.com/post/98879157982/introduction-to-distributed-consesnus-by-konrad)
+
+Konrad Malawski from Typesafe is giving an talk about consensus in modern distributed programming. His presentation will introduce you to core concepts of distributed consensus, the reality of communication in an uncertain world and how to mitigate the problems with Akka. Serious stuff for serious Scala programmers and really amazing preso!
+
+* \[Distributed Systems\] [Intro to consistend hashing](http://digest.nushackers.org/2014/09/25/consistent-hashing/)
+
+A brief introduction to consistent hashing the idea used in many distributed NoSQL datastorages, like Amazon Dynamo, Apache Cassandra, Riak and frameworks for distributed computing like Akka.
+
+* \[Databases\] [Real time analytics at LinkedIn](http://engineering.linkedin.com/analytics/real-time-analytics-massive-scale-pinot)
+
+If you ever wondered how analytics is done on Big Data scale, here is the answer. Straight from LinkedIn comes Pinot - a real-time analytics tool able to handle vast amounts of data with ease.
+
+* \[Scala\] [Future of Scala - Interview](http://zeroturnaround.com/rebellabs/interview-with-typesafe-4-answers-about-the-past-present-and-future-of-scala-development/)
+
+Adriaan Moors, Scala Tech Lead is answering questions about the future of Scala. The language is evolving rapidly and the whole Scalac team is eager to see what it will become in the future. Maybe the new leader? The interview will shed some light on this topic.
+

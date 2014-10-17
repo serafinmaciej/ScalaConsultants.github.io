@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2014-10-10 16:10:00
+date: 2014-10-17 16:10:00
 layout: post
 slug: digest-5
 title: Scalac Weekly Digest#5
@@ -8,23 +8,33 @@ summary: Collection of interesting links from around of web choosen for you by s
 author: Scalac Team
 tags:
 - Scalac Weekly Digest
+- Domain Driven Development
+- Scala
+- Distributed Systems
+- Databases
 ---
 
 Hi folks! 
 
-DESCRIPTION
+Welcome to the fifth edition of Scalac Weekly Digest! We hope you enjoy it and that you will stay with us longer. This week happens to concentrate on the interesting topic of distributed computing and Akka. We surely love it and hope you will too. See you next week.
 
-* \[Security\] [TrueCrypt alternative](http://www.esecurityplanet.com/open-source-security/veracrypt-a-worthy-truecrypt-alternative.html)
-* \[Javascript\] [JS heat map](https://github.com/zeman/perfmap)
-* \[Hiring\] [Resume Driven Development](http://radar.oreilly.com/2014/10/resume-driven-development.html)
-* \[NoSQL\] [BASE vs ACID in banking](http://highscalability.com/blog/2013/5/1/myth-eric-brewer-on-why-banks-are-base-not-acid-availability.html)
 * \[Domain Driven Development\] [Intro to Domain Driven Development](http://www.ntcoding.blogspot.com/2014/05/come-and-join-innovative-ddd-community.html)
-* \[Distributed Systems\] [Message Queues Comparison](http://www.bravenewgeek.com/dissecting-message-queues/)
-* \[Working\] [Hammock Driven Development by Rich Hickey](https://www.youtube.com/watch?v=f84n5oFoZBc)
-* \[Programming\] [Cost of a mutex](http://mortoray.com/2011/12/16/how-does-a-mutex-work-what-does-it-cost/)
-* \[NoSQL\] [NoSQL beginners advice](http://architects.dzone.com/articles/nosql-advice-i-wish-someone)
+
+Interesting article about the principles of Domain Driven Development. DDD is experiencing renaissance thanks to technologies like Akka, message buses and concepts like RESTfull apis. If you are looking for a way to improve communcication between business and tech people DDD might something for you.
+
 * \[Scala\] [Distributed Consensus in Akka](http://letitcrash.com/post/98879157982/introduction-to-distributed-consesnus-by-konrad)
-* \[Programming\] [Compile time enforced immutability in D](http://www.drdobbs.com/architecture-and-design/function-purity-and-immutable-data-struc/240169087)
+
+Konrad Malawski from Typesafe is giving an talk about consensus in modern distributed programming. His presentation will introduce you to core concepts of distributed consesnus, the realities of communication in an uncertain world and how to mitigate the problems with Akka. Serious stuff for serious Scala programmers.
+
 * \[Distributed Systems\] [Intro to consistend hashing](http://digest.nushackers.org/2014/09/25/consistent-hashing/)
+
+A brief introduction to consistent hashing the idea used in many distributed NoSQL datastorages, like Amazon Dynamo, Apache Cassandra, Riak and frameworks for distributed computing like Akka.
+
 * \[Databases\] [Real time analytics at LinkedIn](http://engineering.linkedin.com/analytics/real-time-analytics-massive-scale-pinot)
+
+If you ever wondered how anaylitcs is done on Big Data scale, here is the answer. Straight from LinkedIn here comes pinot a real-time analytics tool able to handle vast ammounts of data with ease.
+
 * \[Scala\] [Future of Scala - Interview](http://zeroturnaround.com/rebellabs/interview-with-typesafe-4-answers-about-the-past-present-and-future-of-scala-development/)
+
+Adriaan Moors, Scala Tech Lead is answering questions about the future of Scala. The language is evolving rapidly and the whole Scalac team is eager to see what it will become in the future. Maybe the new leader? The interview will shed some light on this topic.
+

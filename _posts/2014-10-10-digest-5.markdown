@@ -4,7 +4,7 @@ date: 2014-10-17 16:10:00
 layout: post
 slug: digest-5
 title: Scalac Weekly Digest#5
-summary: Collection of interesting links from around of web choosen for you by scalac team
+summary: Collection of interesting links from around of web chosen for you by Scalac team
 author: Scalac Team
 tags:
 - Scalac Weekly Digest
@@ -16,15 +16,15 @@ tags:
 
 Hi folks! 
 
-Welcome to the fifth edition of Scalac Weekly Digest! We hope you enjoy it and that you will stay with us longer. This week happens to concentrate on the interesting topic of distributed computing and Akka. We surely love it and hope you will too. See you next week.
+Welcome to the fifth edition of Scalac Weekly Digest! We hope you enjoy it and that you will stay with us longer. This week happens to concentrate on the interesting topic of distributed computing and Akka. We love it and hope you will too. See you next week.
 
 * \[Domain Driven Development\] [Intro to Domain Driven Development](http://www.ntcoding.blogspot.com/2014/05/come-and-join-innovative-ddd-community.html)
 
-Interesting article about the principles of Domain Driven Development. DDD is experiencing renaissance thanks to technologies like Akka, message buses and concepts like RESTfull apis. If you are looking for a way to improve communcication between business and tech people DDD might something for you.
+Interesting article about the principles of Domain Driven Development. DDD is experiencing renaissance thanks to technologies like Akka, message buses and concepts like RESTful apis. If you are looking for a way to improve communication between business and tech people then DDD might be something for you.
 
 * \[Scala\] [Distributed Consensus in Akka](http://letitcrash.com/post/98879157982/introduction-to-distributed-consesnus-by-konrad)
 
-Konrad Malawski from Typesafe is giving an talk about consensus in modern distributed programming. His presentation will introduce you to core concepts of distributed consesnus, the realities of communication in an uncertain world and how to mitigate the problems with Akka. Serious stuff for serious Scala programmers.
+Konrad Malawski from Typesafe is giving an talk about consensus in modern distributed programming. His presentation will introduce you to core concepts of distributed consensus, the reality of communication in an uncertain world and how to mitigate the problems with Akka. Serious stuff for serious Scala programmers.
 
 * \[Distributed Systems\] [Intro to consistend hashing](http://digest.nushackers.org/2014/09/25/consistent-hashing/)
 
@@ -32,7 +32,7 @@ A brief introduction to consistent hashing the idea used in many distributed NoS
 
 * \[Databases\] [Real time analytics at LinkedIn](http://engineering.linkedin.com/analytics/real-time-analytics-massive-scale-pinot)
 
-If you ever wondered how anaylitcs is done on Big Data scale, here is the answer. Straight from LinkedIn here comes pinot a real-time analytics tool able to handle vast ammounts of data with ease.
+If you ever wondered how analytics is done on Big Data scale, here is the answer. Straight from LinkedIn comes Pinot - a real-time analytics tool able to handle vast amounts of data with ease.
 
 * \[Scala\] [Future of Scala - Interview](http://zeroturnaround.com/rebellabs/interview-with-typesafe-4-answers-about-the-past-present-and-future-of-scala-development/)
 

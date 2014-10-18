@@ -14,5 +14,6 @@ Hi folks!
 
 [DESC]
 
+* \[Scala\] [Activate persistence framework](http://activate-framework.org/)
 * \[TAG\] [title](link)
 

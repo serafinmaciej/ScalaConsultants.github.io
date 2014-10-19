@@ -15,5 +15,6 @@ Hi folks!
 [DESC]
 
 * \[Scala\] [Activate persistence framework](http://activate-framework.org/)
+* \[Android\] [Retrofit example](http://inaka.net/blog/2014/10/10/android-retrofit-rest-client/)
 * \[TAG\] [title](link)
 

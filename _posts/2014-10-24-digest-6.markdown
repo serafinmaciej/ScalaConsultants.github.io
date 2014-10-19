@@ -16,5 +16,6 @@ Hi folks!
 
 * \[Scala\] [Activate persistence framework](http://activate-framework.org/)
 * \[Android\] [Retrofit example](http://inaka.net/blog/2014/10/10/android-retrofit-rest-client/)
+* \[Android\] [Communicating with Android Wear](http://ptrprograms.blogspot.com/2014/10/a-guide-to-android-wear-message-api.html)
 * \[TAG\] [title](link)
 

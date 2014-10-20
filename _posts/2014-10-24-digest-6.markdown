@@ -18,5 +18,6 @@ Hi folks!
 * \[Android\] [Retrofit example](http://inaka.net/blog/2014/10/10/android-retrofit-rest-client/)
 * \[Android\] [Communicating with Android Wear](http://ptrprograms.blogspot.com/2014/10/a-guide-to-android-wear-message-api.html)
 * \[Artificial Intelligence\] [Using AI for hypothesis generation](http://www.economist.com/news/science-and-technology/21621704-new-type-software-helps-researchers-decide-what-they-should-be-looking)
+* * \[Scala\] [Typelevel Scala](http://typelevel.org/blog/2014/09/02/typelevel-scala.html)
 * \[TAG\] [title](link)
 

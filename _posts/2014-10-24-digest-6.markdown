@@ -20,5 +20,6 @@ Hi folks!
 * \[Artificial Intelligence\] [Using AI for hypothesis generation](http://www.economist.com/news/science-and-technology/21621704-new-type-software-helps-researchers-decide-what-they-should-be-looking)
 * \[Scala\] [Typelevel Scala](http://typelevel.org/blog/2014/09/02/typelevel-scala.html)
 * \[Optical Character Recognition\] [Project Naptha - practical OCR in browser](http://projectnaptha.com/)
+* \[Physics\] [In search of topological qubit](http://www.technologyreview.com/featuredstory/531606/microsofts-quantum-mechanics/)
 * \[TAG\] [title](link)
 

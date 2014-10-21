@@ -24,5 +24,6 @@ Hi folks!
 * \[Javascript\] [Writing custom DSL](https://www.youtube.com/watch?v=lm4jEcnWeKI&index=11&list=PL37ZVnwpeshFXOP2lqCUykYPXYNsK_fgN)
 * \[Security\] [Securely moving data by any means available](https://github.com/grantdobbe/endrun)
 * \[Scala\] [Three reasons data engineers should learn Scala](http://www.hakkalabs.co/articles/three-reasons-data-eng-learn-scala)
+* \[Architecture\] [Sacrificial Architecture](http://architects.dzone.com/articles/sacrificial-architecture)
 * \[TAG\] [title](link)
 

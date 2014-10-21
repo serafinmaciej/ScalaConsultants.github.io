@@ -21,5 +21,6 @@ Hi folks!
 * \[Scala\] [Typelevel Scala](http://typelevel.org/blog/2014/09/02/typelevel-scala.html)
 * \[Optical Character Recognition\] [Project Naptha - practical OCR in browser](http://projectnaptha.com/)
 * \[Physics\] [In search of topological qubit](http://www.technologyreview.com/featuredstory/531606/microsofts-quantum-mechanics/)
+* \[Javascript\] [Writing custom DSL](https://www.youtube.com/watch?v=lm4jEcnWeKI&index=11&list=PL37ZVnwpeshFXOP2lqCUykYPXYNsK_fgN)
 * \[TAG\] [title](link)
 

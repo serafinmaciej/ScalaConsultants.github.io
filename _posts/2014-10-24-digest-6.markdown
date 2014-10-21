@@ -25,5 +25,6 @@ Hi folks!
 * \[Security\] [Securely moving data by any means available](https://github.com/grantdobbe/endrun)
 * \[Scala\] [Three reasons data engineers should learn Scala](http://www.hakkalabs.co/articles/three-reasons-data-eng-learn-scala)
 * \[Architecture\] [Sacrificial Architecture](http://architects.dzone.com/articles/sacrificial-architecture)
+* \[Web Development\] [How browsers work?](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 * \[TAG\] [title](link)
 
